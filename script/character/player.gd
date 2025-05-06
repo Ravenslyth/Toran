@@ -45,7 +45,7 @@ func spawn_character(character_name:String):
 	
 	if character_name == "Napo":
 		current_character = napo_scene.instantiate()
-	elif character_name == "Grana":
+	elif character_name == "Grano":
 		current_character = grano_scene.instantiate()
 		
 	add_child(current_character)
