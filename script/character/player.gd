@@ -8,14 +8,14 @@ var current_character : Node2D = null
 var direction
 
 func _ready():
-	spawn_character("Napo")
+	swap_character("Napo")
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("swap_character"):
 		if current_character.name == "Napo":
-			spawn_character("Grano")
+			swap_character("Grano")
 		else:
-			spawn_character("Napo")
+			swap_character("Napo")
 	
 	if current_character:
 		var speed = current_character.logic.get_speed()
@@ -39,7 +39,7 @@ func movementPlayer(SPEED):
 #---------------------------INTERACTION----------------------------#
 
 #-----Swap character
-func spawn_character(character_name:String):
+func swap_character(character_name:String):
 	if current_character:
 		current_character.queue_free()
 	
