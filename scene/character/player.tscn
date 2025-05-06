@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://stn1547xkwea"]
+
+[ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqcv7"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_8nvga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vqcv7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_tree_entered"]
