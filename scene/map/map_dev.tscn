@@ -10,3 +10,18 @@ position = Vector2(364, 295)
 
 [node name="knife" parent="." instance=ExtResource("1_sfj6v")]
 position = Vector2(170, 137)
+
+[node name="knife2" parent="." instance=ExtResource("1_sfj6v")]
+position = Vector2(284, 134)
+
+[node name="knife3" parent="." instance=ExtResource("1_sfj6v")]
+position = Vector2(133, 253)
+
+[node name="knife4" parent="." instance=ExtResource("1_sfj6v")]
+position = Vector2(94, 62)
+
+[node name="knife5" parent="." instance=ExtResource("1_sfj6v")]
+position = Vector2(233, 35)
+
+[node name="knife6" parent="." instance=ExtResource("1_sfj6v")]
+position = Vector2(353, 58)

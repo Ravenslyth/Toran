@@ -1,4 +1,5 @@
 class_name Weapon
+extends Resource
 
 var name: String 
 var damage: int

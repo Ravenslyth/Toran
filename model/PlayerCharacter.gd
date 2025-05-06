@@ -4,6 +4,10 @@ extends Character
 var player_id: int = 0
 var detection : Vector2 = Vector2(2,2)
 
+var inventory: Array = []
+var Equipement: Array = []
+var MAX_INVENTORY_SIZE := 5
+
 
 #-----basic Animation character
 func play_movement_animation(direction: Vector2, animated_sprite: AnimatedSprite2D):
