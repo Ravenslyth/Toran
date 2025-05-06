@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://biit8xwyaj7rd"]
+[gd_scene load_steps=4 format=3 uid="uid://biit8xwyaj7rd"]
 
 [ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_5m413"]
 [ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/knife.tscn" id="1_sfj6v"]
+[ext_resource type="PackedScene" uid="uid://o7oqrge1o27m" path="res://scene/object/Weapon/gun.tscn" id="3_6lnn0"]
 
 [node name="Map_Dev" type="Node2D"]
 
@@ -11,17 +12,5 @@ position = Vector2(364, 295)
 [node name="knife" parent="." instance=ExtResource("1_sfj6v")]
 position = Vector2(170, 137)
 
-[node name="knife2" parent="." instance=ExtResource("1_sfj6v")]
-position = Vector2(284, 134)
-
-[node name="knife3" parent="." instance=ExtResource("1_sfj6v")]
-position = Vector2(133, 253)
-
-[node name="knife4" parent="." instance=ExtResource("1_sfj6v")]
-position = Vector2(94, 62)
-
-[node name="knife5" parent="." instance=ExtResource("1_sfj6v")]
-position = Vector2(233, 35)
-
-[node name="knife6" parent="." instance=ExtResource("1_sfj6v")]
-position = Vector2(353, 58)
+[node name="Gun" parent="." instance=ExtResource("3_6lnn0")]
+position = Vector2(281, 138)
