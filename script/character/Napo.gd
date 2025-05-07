@@ -9,6 +9,5 @@ func _ready():
 	logic.player_id = 1
 	logic.detection = Vector2(2,2)
 	logic.MAX_INVENTORY_SIZE = 5
-
 	
  

@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://biit8xwyaj7rd"]
+[gd_scene load_steps=4 format=3 uid="uid://biit8xwyaj7rd"]
 
 [ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_5m413"]
 [ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/Lootable.tscn" id="2_d8i6o"]
+[ext_resource type="Resource" uid="uid://gcgjfdr1cnk2" path="res://ressource/weapon/gun/pistol.tres" id="3_6r1uk"]
 
 [node name="Map_Dev" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5m413")]
 position = Vector2(364, 295)
 
-[node name="Object" parent="." instance=ExtResource("2_d8i6o")]
+[node name="Lootable" parent="." instance=ExtResource("2_d8i6o")]
+position = Vector2(171, 154)
+
+[node name="Lootable2" parent="." instance=ExtResource("2_d8i6o")]
+position = Vector2(297, 157)
+obj = ExtResource("3_6r1uk")

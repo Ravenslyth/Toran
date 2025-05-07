@@ -7,9 +7,6 @@ extends CharacterBody2D
 var current_character : Node2D = null
 var direction
 
-var object_current_loot : Area2D = null
- 
-
 #----------------------INITIALISATION PLAYER-----------------------#
 
 func _ready():
@@ -22,10 +19,10 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("loot"):
-		if object_current_loot:
+		if current_character.logic.object_current_loot:
 
 			#0003
-			add_item_inventory(object_current_loot)
+			current_character.logic.add_item_inventory(current_character.logic.object_current_loot)
 	if Input.is_action_just_pressed("swap_character"):
 		if current_character.name == "Napo":
 			#0002
@@ -74,30 +71,13 @@ func swap_character(character_name:String):
 #------------------------DETECTION OBJECT--------------------------#
 
 func _on_detection_area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	object_current_loot = area
+	current_character.logic.object_current_loot = area
 	print("A  " + area.obj.name + " ??")
 
 func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
 	if is_instance_valid(area):
-		if area == object_current_loot :
+		if area == current_character.logic.object_current_loot :
 			print("Maybe another time ....")
-			object_current_loot = null
+			current_character.logic.object_current_loot = null
 
 #--------------------END DETECTION OBJECT--------------------------#
-
-#-----------------------ADD ITEM INVENTORY-------------------------#
-#0003
-func add_item_inventory(object_current):
-	if current_character.logic.inventory.size() >= current_character.logic.MAX_INVENTORY_SIZE:
-		print("To much object .....")
-		return
-		
-	print("Its could be useful ...")
-	#current_character.logic.inventory.append(object_current.name)
-	object_current.queue_free()
-	
-	if object_current == object_current_loot:
-		object_current_loot = null
-
-	print(current_character.logic.inventory)
-#---------------------END ADD ITEM INVENTORY-----------------------#
