@@ -93,7 +93,7 @@ func add_item_inventory(object_current):
 		return
 		
 	print("Its could be useful ...")
-	current_character.logic.inventory.append(object_current.name)
+	#current_character.logic.inventory.append(object_current.name)
 	object_current.queue_free()
 	
 	if object_current == object_current_loot:
