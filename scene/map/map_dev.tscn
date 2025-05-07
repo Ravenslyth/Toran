@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://biit8xwyaj7rd"]
 
 [ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_5m413"]
-[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/knife.tscn" id="3_6lnn0"]
+[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/Lootable.tscn" id="2_d8i6o"]
 
 [node name="Map_Dev" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5m413")]
 position = Vector2(364, 295)
 
-[node name="knife" parent="." instance=ExtResource("3_6lnn0")]
-position = Vector2(170, 137)
+[node name="Object" parent="." instance=ExtResource("2_d8i6o")]

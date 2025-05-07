@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="HandToHand" load_steps=4 format=3 uid="uid://c4wwvwgansqwj"]
+
+[ext_resource type="Script" path="res://model/object/weapon/HandToHand.gd" id="1_e2g4o"]
+[ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_hgmq5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kde2x"]
+atlas = ExtResource("1_hgmq5")
+region = Rect2(0.376556, 22.3772, 15.2698, 5.13496)
+
+[resource]
+script = ExtResource("1_e2g4o")
+damage = 15
+energy_cost = 2
+range = 2.0
+name = "knife"
+description = "A simple knife"
+icon = SubResource("AtlasTexture_kde2x")

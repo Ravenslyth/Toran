@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://gcgjfdr1cnk2"]
-
-[ext_resource type="Script" path="res://model/object/weapon/Gun.gd" id="1_unftf"]
-
-[resource]
-script = ExtResource("1_unftf")
-ammo_type = "9mm"

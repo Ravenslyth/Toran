@@ -75,7 +75,7 @@ func swap_character(character_name:String):
 
 func _on_detection_area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	object_current_loot = area
-	print("A  " + area.name + " ??")
+	print("A  " + area.obj.name + " ??")
 
 func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
 	if is_instance_valid(area):

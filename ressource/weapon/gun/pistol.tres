@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=4 format=3 uid="uid://gcgjfdr1cnk2"]
+
+[ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_jvg7p"]
+[ext_resource type="Script" path="res://model/object/weapon/Gun.gd" id="1_unftf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8twks"]
+atlas = ExtResource("1_jvg7p")
+region = Rect2(0.448357, 117.726, 11.956, 10.4051)
+
+[resource]
+script = ExtResource("1_unftf")
+ammo_type = "9mm"
+max_ammo = 6
+current_ammo = 6
+damage = 10
+energy_cost = 1
+range = 2.0
+name = "Pistol"
+description = "A simple Gun"
+icon = SubResource("AtlasTexture_8twks")
