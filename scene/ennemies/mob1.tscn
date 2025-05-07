@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwkit8pofeq0g"]
+
+[ext_resource type="Script" path="res://script/ennemies/mob1.gd" id="1_1ido5"]
+[ext_resource type="Texture2D" uid="uid://bfwfwwmyfpe6" path="res://icon.svg" id="1_yci1w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vihe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yci1w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usi6x"]
+size = Vector2(52, 52)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4sci"]
+radius = 247.808
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0pmw"]
+size = Vector2(642, 488)
+
+[node name="Mob1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_1ido5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_vihe6")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_usi6x")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 1.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="ReloadPosition" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="OutOfView" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="See_you" type="Label" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = -81.0
+offset_right = 32.0
+offset_bottom = -26.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "!"
+
+[node name="Not_See_you" type="Label" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = -81.0
+offset_right = 32.0
+offset_bottom = -26.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "?"
+
+[node name="ZoneOfDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneOfDetection"]
+shape = SubResource("CircleShape2D_k4sci")
+
+[node name="Look(noImplemented)" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Look(noImplemented)"]
+position = Vector2(0, 234)
+shape = SubResource("RectangleShape2D_i0pmw")
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="timeout" from="ReloadPosition" to="." method="_on_reload_position_timeout"]
+[connection signal="timeout" from="OutOfView" to="." method="_on_out_of_view_timeout"]
+[connection signal="body_entered" from="ZoneOfDetection" to="." method="_on_zone_of_detection_body_entered"]
+[connection signal="body_exited" from="ZoneOfDetection" to="." method="_on_zone_of_detection_body_exited"]
