@@ -49,6 +49,9 @@ autostart = true
 wait_time = 5.0
 one_shot = true
 
+[node name="BackToOriginePosition" type="Timer" parent="."]
+one_shot = true
+
 [node name="See_you" type="Label" parent="."]
 visible = false
 offset_left = -8.0
