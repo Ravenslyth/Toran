@@ -16,11 +16,9 @@ var direction
 func _ready():
 	for char_data in team_data.members:
 		team.append(char_data.scene)
-		
-	
+	#0002
 	swap_to_character(0)
-	##0002
-	#swap_character("Napo")
+	 
 
 #--------------------END INITIALISATION PLAYER---------------------#
 
@@ -29,19 +27,13 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_just_pressed("loot"):
 		if current_character.logic.object_current_loot:
-
 			#0003
 			current_character.logic.add_item_inventory(current_character.logic.object_current_loot)
 	if Input.is_action_just_pressed("swap_character"):
 		current_character_index = (current_character_index + 1) % team.size()
+		#0002
 		swap_to_character(current_character_index)
-	#if Input.is_action_just_pressed("swap_character"):
-		#if current_character.name == "Napo":
-			##0002
-			#swap_character("Grano")
-		#else:
-			##0002
-			#swap_character("Napo")
+	#if 
 	
 	if current_character:
 		var speed = current_character.logic.get_speed()
@@ -62,22 +54,21 @@ func movementPlayer(SPEED):
 	
 	move_and_slide()
 
+
 #-----------------------END MOVEMENT PLAYER------------------------#
 
 #---------------------------INTERACTION----------------------------#
+
 #0002
-func swap_character(character_name:String):
+func swap_to_character(index: int):
 	if current_character:
 		current_character.queue_free()
 	
-	if character_name == "Napo":
-		current_character = napo_scene.instantiate()
-	elif character_name == "Grano":
-		current_character = grano_scene.instantiate()
-		
+	current_character_index = index
+	current_character = team[current_character_index].instantiate()
 	add_child(current_character)
 	detectionShape.scale = current_character.logic.detection
-	
+
 #-------------------------END INTERACTION--------------------------#
 
 #------------------------DETECTION OBJECT--------------------------#
@@ -93,12 +84,3 @@ func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, loca
 			current_character.logic.object_current_loot = null
 
 #--------------------END DETECTION OBJECT--------------------------#
-
-func swap_to_character(index: int):
-	if current_character:
-		current_character.queue_free()
-	
-	current_character_index = index
-	current_character = team[current_character_index].instantiate()
-	add_child(current_character)
-	detectionShape.scale = current_character.logic.detection

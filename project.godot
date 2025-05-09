@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Toran"
-run/main_scene="res://scene/map/map_dev.tscn"
+run/main_scene="res://scene/map/OutWorldDev.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]
