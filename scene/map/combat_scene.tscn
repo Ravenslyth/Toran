@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfqivwg1wht44"]
+
+[ext_resource type="Script" path="res://script/fight/TurnManager.gd" id="1_d10et"]
+[ext_resource type="PackedScene" uid="uid://4gohacy2v61b" path="res://scene/character/Napo.tscn" id="2_05u75"]
+[ext_resource type="PackedScene" uid="uid://5h4dhx5iu5ci" path="res://scene/character/Grano.tscn" id="3_jtdkl"]
+
+[node name="CombatScene" type="Node2D"]
+
+[node name="TurnManager" type="Node2D" parent="."]
+script = ExtResource("1_d10et")
+
+[node name="PlayerParty" type="Node2D" parent="."]
+position = Vector2(92, 76)
+
+[node name="Napo" parent="PlayerParty" instance=ExtResource("2_05u75")]
+
+[node name="EnemyParty" type="Node2D" parent="."]
+position = Vector2(491, 81)
+
+[node name="Grano" parent="EnemyParty" instance=ExtResource("3_jtdkl")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

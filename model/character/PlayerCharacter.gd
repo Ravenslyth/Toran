@@ -73,7 +73,5 @@ func add_item_inventory(object_current):
 	#0004
 	equip_items("main_weapon",object_current.obj)
 	
-	print(equipment)
-	
 
 #---------------------END ADD ITEM INVENTORY-----------------------#

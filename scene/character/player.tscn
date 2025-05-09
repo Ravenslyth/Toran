@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://stn1547xkwea"]
+[gd_scene load_steps=5 format=3 uid="uid://stn1547xkwea"]
 
 [ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
+[ext_resource type="Resource" uid="uid://dsdyc53b7k14t" path="res://ressource/character/my_team.tres" id="2_xgor1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6noi1"]
 
@@ -9,6 +10,7 @@
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_8nvga")
+team_data = ExtResource("2_xgor1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6noi1")

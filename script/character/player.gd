@@ -4,14 +4,23 @@ extends CharacterBody2D
 @onready var grano_scene = preload("res://scene/character/Grano.tscn")
 @onready var detectionShape : CollisionShape2D = $DetectionArea/DetectionShape2D
 
-var current_character : Node2D = null
+@export var team_data: TeamData
+var team := []
+var current_character_index := 0
+var current_character: Node2D = null
+
 var direction
 
 #----------------------INITIALISATION PLAYER-----------------------#
 
 func _ready():
-	#0002
-	swap_character("Napo")
+	for char_data in team_data.members:
+		team.append(char_data.scene)
+		
+	
+	swap_to_character(0)
+	##0002
+	#swap_character("Napo")
 
 #--------------------END INITIALISATION PLAYER---------------------#
 
@@ -24,12 +33,15 @@ func _physics_process(delta):
 			#0003
 			current_character.logic.add_item_inventory(current_character.logic.object_current_loot)
 	if Input.is_action_just_pressed("swap_character"):
-		if current_character.name == "Napo":
-			#0002
-			swap_character("Grano")
-		else:
-			#0002
-			swap_character("Napo")
+		current_character_index = (current_character_index + 1) % team.size()
+		swap_to_character(current_character_index)
+	#if Input.is_action_just_pressed("swap_character"):
+		#if current_character.name == "Napo":
+			##0002
+			#swap_character("Grano")
+		#else:
+			##0002
+			#swap_character("Napo")
 	
 	if current_character:
 		var speed = current_character.logic.get_speed()
@@ -81,3 +93,12 @@ func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, loca
 			current_character.logic.object_current_loot = null
 
 #--------------------END DETECTION OBJECT--------------------------#
+
+func swap_to_character(index: int):
+	if current_character:
+		current_character.queue_free()
+	
+	current_character_index = index
+	current_character = team[current_character_index].instantiate()
+	add_child(current_character)
+	detectionShape.scale = current_character.logic.detection
