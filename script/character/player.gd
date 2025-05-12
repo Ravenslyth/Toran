@@ -5,17 +5,17 @@ extends CharacterBody2D
 @onready var detectionShape : CollisionShape2D = $DetectionArea/DetectionShape2D
 @onready var tilemap := get_parent().get_node("TileMap")
 
-<<<<<<< Updated upstream
+ 
 var current_character : Node2D = null
-=======
-@export var team_data: TeamData
+ 
+#@export var team_data: TeamData
 @export var inventory : Inventory
 
 var team := []
 var current_character_index := 0
-var current_character: Node2D = null
+ 
 
->>>>>>> Stashed changes
+ 
 var direction
 
 var object_current_loot : Area2D = null
@@ -33,19 +33,12 @@ func _ready():
 
 func _physics_process(delta):
 	
-	var tile_id = get_current_tile_atlas_coords()
-	print(tile_id)
-	
 	if Input.is_action_just_pressed("loot"):
-<<<<<<< Updated upstream
+ 
 		if object_current_loot:
-
-			#0003
-			add_item_inventory(object_current_loot)
-=======
-		if current_character.logic.object_current_loot:
-			current_character.logic.object_current_loot.collect(inventory)
->>>>>>> Stashed changes
+			object_current_loot.collect(inventory)
+			 
+ 
 	if Input.is_action_just_pressed("swap_character"):
 		if current_character.name == "Napo":
 			#0002
@@ -106,7 +99,7 @@ func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, loca
 
 #--------------------END DETECTION OBJECT--------------------------#
 
-<<<<<<< Updated upstream
+ 
 #-----------------------ADD ITEM INVENTORY-------------------------#
 #0003
 func add_item_inventory(object_current):
@@ -123,7 +116,7 @@ func add_item_inventory(object_current):
 
 	print(current_character.logic.inventory)
 #---------------------END ADD ITEM INVENTORY-----------------------#
-=======
+ 
 func get_current_tile_atlas_coords() -> Vector2i:
 	var local_pos = tilemap.to_local(current_character.global_position)
 	var cell_coords = tilemap.local_to_map(local_pos)
@@ -131,4 +124,3 @@ func get_current_tile_atlas_coords() -> Vector2i:
 	var atlas_coords = tilemap.get_cell_atlas_coords(layer, cell_coords)
 	return atlas_coords
 
->>>>>>> Stashed changes

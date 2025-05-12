@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://p8ymettmh486"]
+[gd_scene load_steps=8 format=3 uid="uid://p8ymettmh486"]
 
-[ext_resource type="Texture2D" uid="uid://cchcwy6pxliiy" path="res://asset/map/spritesheet.png" id="1_ek3p0"]
-[ext_resource type="Script" path="res://script/map/OutWorldDev.gd" id="1_i5rxm"]
-[ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_sqpsy"]
-[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/props/Weapon/Lootable.tscn" id="2_njbp6"]
+[ext_resource type="Texture2D" uid="uid://wfwdib1iyoex" path="res://asset/map/spritesheet.png" id="1_ek3p0"]
+[ext_resource type="PackedScene" uid="uid://djfbyhod5gj5x" path="res://scene/character/player.tscn" id="1_sqpsy"]
+[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/Lootable.tscn" id="2_njbp6"]
 [ext_resource type="Resource" uid="uid://gcgjfdr1cnk2" path="res://ressource/weapon/gun/pistol.tres" id="3_cat67"]
 [ext_resource type="Resource" uid="uid://ksynwt0pi444" path="res://ressource/weapon/ammo/SimpleBullet.tres" id="5_e8iu2"]
 
@@ -233,7 +232,6 @@ tile_size = Vector2i(32, 16)
 sources/0 = SubResource("TileSetAtlasSource_18iif")
 
 [node name="OutWorldDev" type="Node2D"]
-script = ExtResource("1_i5rxm")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)

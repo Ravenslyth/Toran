@@ -1,16 +1,9 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=4 format=3 uid="uid://stn1547xkwea"]
+[gd_scene load_steps=7 format=3 uid="uid://djfbyhod5gj5x"]
 
 [ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
-=======
-[gd_scene load_steps=8 format=3 uid="uid://stn1547xkwea"]
-
-[ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
-[ext_resource type="Resource" uid="uid://dsdyc53b7k14t" path="res://ressource/character/my_team.tres" id="2_xgor1"]
-[ext_resource type="Resource" uid="uid://dbysyyfnmjqyr" path="res://ressource/inventory/PlayerInventory.tres" id="3_5mkl2"]
-[ext_resource type="PackedScene" uid="uid://gpmmu5sf6bds" path="res://scene/ui/inventory_gui.tscn" id="3_428u7"]
-[ext_resource type="Script" path="res://script/ui/CanvasLayer.gd" id="3_mcwfe"]
->>>>>>> Stashed changes
+[ext_resource type="Resource" uid="uid://dbysyyfnmjqyr" path="res://ressource/inventory/PlayerInventory.tres" id="2_bb6ae"]
+[ext_resource type="PackedScene" uid="uid://gpmmu5sf6bds" path="res://scene/ui/inventory_gui.tscn" id="3_4ndsr"]
+[ext_resource type="Script" path="res://script/ui/CanvasLayer.gd" id="3_vw7xs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6noi1"]
 
@@ -19,11 +12,7 @@
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_8nvga")
-<<<<<<< Updated upstream
-=======
-team_data = ExtResource("2_xgor1")
-inventory = ExtResource("3_5mkl2")
->>>>>>> Stashed changes
+inventory = ExtResource("2_bb6ae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6noi1")
@@ -38,18 +27,9 @@ shape = SubResource("CircleShape2D_vqcv7")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-script = ExtResource("3_mcwfe")
+script = ExtResource("3_vw7xs")
 
-[node name="InventoryGui" parent="Camera2D/CanvasLayer" instance=ExtResource("3_428u7")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 17.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 90.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="InventoryGui" parent="Camera2D/CanvasLayer" instance=ExtResource("3_4ndsr")]
 
 [connection signal="area_shape_entered" from="DetectionArea" to="." method="_on_detection_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="DetectionArea" to="." method="_on_detection_area_area_shape_exited"]

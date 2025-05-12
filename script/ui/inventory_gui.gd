@@ -19,7 +19,6 @@ func open():
 	isOpen = true
 
 
-
 func close():
 	visible = false
 	isOpen = false

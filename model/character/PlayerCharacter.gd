@@ -1,18 +1,21 @@
 class_name PlayerCharacter
 extends Character
 
- 
-
 var player_id: int = 0
-var detection : Vector2 = Vector2(2,2)
+var detection : Vector2 = Vector2(0,0)
 
-<<<<<<< Updated upstream
+var object_current_loot : Area2D = null
+
 var inventory: Array = []
-var Equipement: Array = []
-var MAX_INVENTORY_SIZE := 5
-=======
->>>>>>> Stashed changes
+var MAX_INVENTORY_SIZE := 0
 
+var equipment := {
+	"main_weapon": null,
+	"off_weapon": null,
+	"helmet": null,
+	"armor": null,
+	"boots": null
+}
 
 #-----basic Animation character
 func play_movement_animation(direction: Vector2, animated_sprite: AnimatedSprite2D):
@@ -34,8 +37,6 @@ func play_movement_animation(direction: Vector2, animated_sprite: AnimatedSprite
 		animated_sprite.play("moveLeft")
 	elif direction.y == 0 and direction.x == 0:
 		animated_sprite.play("idle")
-<<<<<<< Updated upstream
-=======
 
 #-----------------------FUNCTION EQUIP ITEM-------------------------#
 
@@ -54,5 +55,23 @@ func equip_items(slot_name:String, item: object) -> bool:
 
 #---------------------END FUNCTION EQUIP ITEM-----------------------#
 
+#-----------------------ADD ITEM INVENTORY-------------------------#
+#0003
+func add_item_inventory(object_current):
+	if inventory.size() >= MAX_INVENTORY_SIZE:
+		print("To much object .....")
+		return
+		
+	print("Its could be useful ...")
+	inventory.append(object_current.obj)
 
->>>>>>> Stashed changes
+	object_current.queue_free()
+	
+	if object_current == object_current_loot:
+		object_current_loot = null
+	
+	#0004
+	equip_items("main_weapon",object_current.obj)
+	
+
+#---------------------END ADD ITEM INVENTORY-----------------------#
