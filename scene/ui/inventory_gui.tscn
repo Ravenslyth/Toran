@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://gpmmu5sf6bds"]
+
+[ext_resource type="Script" path="res://script/ui/inventory_gui.gd" id="1_33jfl"]
+[ext_resource type="Texture2D" uid="uid://djbgssjas7r1s" path="res://asset/ui/Sample-InventorySlotsSet.png" id="1_sfy2x"]
+[ext_resource type="PackedScene" uid="uid://bvba2rhxopuhr" path="res://scene/ui/slot_gui.tscn" id="2_ouyxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmuyx"]
+atlas = ExtResource("1_sfy2x")
+region = Rect2(224, 79, 24, 24)
+
+[node name="InventoryGui" type="Control"]
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -12.0
+offset_right = -995.0
+offset_bottom = -580.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_33jfl")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 152.0
+offset_bottom = 47.0
+texture = SubResource("AtlasTexture_hmuyx")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -14.5
+offset_right = 71.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="slot_gui" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ouyxf")]
+layout_mode = 2
+
+[node name="slot_gui2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ouyxf")]
+layout_mode = 2
+
+[node name="slot_gui3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ouyxf")]
+layout_mode = 2
+
+[node name="slot_gui4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ouyxf")]
+layout_mode = 2
+
+[node name="slot_gui5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ouyxf")]
+layout_mode = 2

@@ -4,11 +4,18 @@ extends Node2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 
+
+
 func _ready():
 	logic.base_speed = 200
 	logic.player_id = 1
 	logic.detection = Vector2(2,2)
+<<<<<<< Updated upstream
 	logic.MAX_INVENTORY_SIZE = 5
+=======
+ 
+
+>>>>>>> Stashed changes
 
 	
  

@@ -1,6 +1,5 @@
 class_name Character
 
-
 var base_speed := 300
 var speed_bonus := 0
 var speed_malus := 0

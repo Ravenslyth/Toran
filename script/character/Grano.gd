@@ -7,4 +7,5 @@ func _ready():
 	logic.base_speed = 100
 	logic.player_id = 2
 	logic.detection = Vector2(3,3)
-	logic.MAX_INVENTORY_SIZE = 3
+ 
+

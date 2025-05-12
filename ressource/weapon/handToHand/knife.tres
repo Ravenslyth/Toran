@@ -14,4 +14,5 @@ energy_cost = 2
 range = 2.0
 name = "knife"
 description = "A simple knife"
+isStackable = false
 icon = SubResource("AtlasTexture_kde2x")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvba2rhxopuhr"]
+
+[ext_resource type="Script" path="res://script/ui/slot_gui.gd" id="1_6ljjr"]
+[ext_resource type="Texture2D" uid="uid://djbgssjas7r1s" path="res://asset/ui/Sample-InventorySlotsSet.png" id="1_qrstj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa28x"]
+atlas = ExtResource("1_qrstj")
+region = Rect2(224, 78, 24, 26)
+
+[node name="slot_gui" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(25, 25)
+offset_right = 24.0
+offset_bottom = 25.0
+script = ExtResource("1_6ljjr")
+
+[node name="background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xa28x")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 25.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(11, 14)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 13.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "99
+"
