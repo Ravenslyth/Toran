@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa28x"]
 atlas = ExtResource("1_qrstj")
-region = Rect2(224, 78, 24, 26)
+region = Rect2(114, 81, 20, 20)
 
 [node name="slot_gui" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)

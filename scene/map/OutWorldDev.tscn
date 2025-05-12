@@ -255,11 +255,3 @@ position = Vector2(496, 154)
 [node name="Lootable4" parent="." instance=ExtResource("2_njbp6")]
 position = Vector2(398, 157)
 obj = ExtResource("5_e8iu2")
-
-[node name="Lootable5" parent="." instance=ExtResource("2_njbp6")]
-position = Vector2(575, 263)
-obj = ExtResource("5_e8iu2")
-
-[node name="Lootable6" parent="." instance=ExtResource("2_njbp6")]
-position = Vector2(133, 270)
-obj = ExtResource("5_e8iu2")

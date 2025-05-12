@@ -1,4 +1,5 @@
 class_name Character
+extends Node
 
 var base_speed := 300
 var speed_bonus := 0

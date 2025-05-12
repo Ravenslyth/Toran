@@ -5,3 +5,6 @@ extends Resource
 @export var description: String
 @export var isStackable: bool
 @export var icon: Texture2D
+
+func use():
+	print("useddddd")

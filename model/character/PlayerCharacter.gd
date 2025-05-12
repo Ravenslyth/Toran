@@ -5,8 +5,7 @@ var player_id: int = 0
 var detection : Vector2 = Vector2(0,0)
 
 var object_current_loot : Area2D = null
-
-var inventory: Array = []
+var inventory : Inventory = preload("res://ressource/inventory/PlayerInventory.tres") 
 var MAX_INVENTORY_SIZE := 0
 
 var equipment := {
@@ -54,24 +53,3 @@ func equip_items(slot_name:String, item: object) -> bool:
 	return true
 
 #---------------------END FUNCTION EQUIP ITEM-----------------------#
-
-#-----------------------ADD ITEM INVENTORY-------------------------#
-#0003
-func add_item_inventory(object_current):
-	if inventory.size() >= MAX_INVENTORY_SIZE:
-		print("To much object .....")
-		return
-		
-	print("Its could be useful ...")
-	inventory.append(object_current.obj)
-
-	object_current.queue_free()
-	
-	if object_current == object_current_loot:
-		object_current_loot = null
-	
-	#0004
-	equip_items("main_weapon",object_current.obj)
-	
-
-#---------------------END ADD ITEM INVENTORY-----------------------#

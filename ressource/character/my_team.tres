@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TeamData" load_steps=7 format=3 uid="uid://0gv1akeqglkk"]
+
+[ext_resource type="Script" path="res://model/character/TeamData.gd" id="1_ghd1i"]
+[ext_resource type="PackedScene" uid="uid://4gohacy2v61b" path="res://scene/character/Napo.tscn" id="1_i1i1s"]
+[ext_resource type="Script" path="res://model/character/CharacterData.gd" id="2_mlosk"]
+[ext_resource type="PackedScene" uid="uid://5h4dhx5iu5ci" path="res://scene/character/Grano.tscn" id="3_vfi3k"]
+
+[sub_resource type="Resource" id="Resource_4py8r"]
+script = ExtResource("2_mlosk")
+name = "Napo"
+scene = ExtResource("1_i1i1s")
+
+[sub_resource type="Resource" id="Resource_1f1xa"]
+script = ExtResource("2_mlosk")
+name = "Grano"
+scene = ExtResource("3_vfi3k")
+
+[resource]
+script = ExtResource("1_ghd1i")
+members = Array[ExtResource("2_mlosk")]([SubResource("Resource_4py8r"), SubResource("Resource_1f1xa")])

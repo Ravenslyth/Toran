@@ -1,58 +1,53 @@
 extends CharacterBody2D
 
-@onready var napo_scene = preload("res://scene/character/Napo.tscn")
-@onready var grano_scene = preload("res://scene/character/Grano.tscn")
 @onready var detectionShape : CollisionShape2D = $DetectionArea/DetectionShape2D
+@onready var inventory_gui =  $Camera2D/CanvasLayer/InventoryGui
 @onready var tilemap := get_parent().get_node("TileMap")
 
- 
-var current_character : Node2D = null
- 
-#@export var team_data: TeamData
-@export var inventory : Inventory
-
+@export var team_data: TeamData
 var team := []
-var current_character_index := 0
- 
 
- 
-var direction
-
+@export var inventory : Inventory
 var object_current_loot : Area2D = null
- 
+
+var current_character : Node2D = null
+var current_character_index := 0
+
+var direction
+var can_move = true
 
 #----------------------INITIALISATION PLAYER-----------------------#
 
 func _ready():
+	inventory_gui.inventory_opened.connect(_on_inventory_opened)
+	inventory_gui.inventory_closed.connect(_on_inventory_closed)
+	
+	for char_data in team_data.members:
+		team.append(char_data.scene)
 	#0002
-	swap_character("Napo")
+	swap_to_character(0)
 
 #--------------------END INITIALISATION PLAYER---------------------#
 
 #------------------------PROCESS BY FRAME--------------------------#
 
 func _physics_process(delta):
-	
-	if Input.is_action_just_pressed("loot"):
- 
-		if object_current_loot:
-			object_current_loot.collect(inventory)
-			 
- 
-	if Input.is_action_just_pressed("swap_character"):
-		if current_character.name == "Napo":
-			#0002
-			swap_character("Grano")
-		else:
-			#0002
-			swap_character("Napo")
-	
-	if current_character:
-		var speed = current_character.logic.get_speed()
-		#0001
-		movementPlayer(speed)
-		current_character.logic.play_movement_animation(direction,current_character.animated_sprite)
+	if can_move:
+		if Input.is_action_just_pressed("loot"):
+			if object_current_loot:
+				object_current_loot.collect(inventory)
 
+		if Input.is_action_just_pressed("swap_character"):
+			current_character_index = (current_character_index + 1) % team.size()
+			swap_to_character(current_character_index)
+		
+		if current_character:
+			var speed = current_character.logic.get_speed()
+			movementPlayer(speed)
+			current_character.logic.play_movement_animation(direction,current_character.animated_sprite)
+	else:
+		if current_character:
+			current_character.animated_sprite.play("idle")
 #-----------------------END PROCESS BY FRAME------------------------#
 
 #-------------------------MOVEMENT PLAYER---------------------------#
@@ -71,15 +66,12 @@ func movementPlayer(SPEED):
 
 #---------------------------INTERACTION----------------------------#
 #0002
-func swap_character(character_name:String):
+func swap_to_character(index: int):
 	if current_character:
 		current_character.queue_free()
 	
-	if character_name == "Napo":
-		current_character = napo_scene.instantiate()
-	elif character_name == "Grano":
-		current_character = grano_scene.instantiate()
-		
+	current_character_index = index
+	current_character = team[current_character_index].instantiate()
 	add_child(current_character)
 	detectionShape.scale = current_character.logic.detection
 	
@@ -100,27 +92,21 @@ func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, loca
 #--------------------END DETECTION OBJECT--------------------------#
 
  
-#-----------------------ADD ITEM INVENTORY-------------------------#
-#0003
-func add_item_inventory(object_current):
-	if current_character.logic.inventory.size() >= current_character.logic.MAX_INVENTORY_SIZE:
-		print("To much object .....")
-		return
-		
-	print("Its could be useful ...")
-	#current_character.logic.inventory.append(object_current.name)
-	object_current.queue_free()
-	
-	if object_current == object_current_loot:
-		object_current_loot = null
 
-	print(current_character.logic.inventory)
-#---------------------END ADD ITEM INVENTORY-----------------------#
  
+#----------------------GET ID && COORD MAP-------------------------#
+
 func get_current_tile_atlas_coords() -> Vector2i:
 	var local_pos = tilemap.to_local(current_character.global_position)
 	var cell_coords = tilemap.local_to_map(local_pos)
 	var layer = 0  # la plupart du temps, 0
 	var atlas_coords = tilemap.get_cell_atlas_coords(layer, cell_coords)
 	return atlas_coords
+	
+#--------------------END GET ID && COORD MAP-----------------------#
 
+func _on_inventory_opened():
+	can_move = false  
+
+func _on_inventory_closed():
+	can_move = true   
