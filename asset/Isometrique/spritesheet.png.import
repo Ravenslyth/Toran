@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b08l8aro00q0y"
-path="res://.godot/imported/Dreamland (0.5) Flora.png-55c955262bb1fb986735c5c53b9af219.ctex"
+uid="uid://bl7mjslo80sxu"
+path="res://.godot/imported/spritesheet.png-16b929b94663b38a26a6b75b673f0518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Dreamland asset pack (0.5)/Dreamland (0.5) Flora.png"
-dest_files=["res://.godot/imported/Dreamland (0.5) Flora.png-55c955262bb1fb986735c5c53b9af219.ctex"]
+source_file="res://asset/Isometrique/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-16b929b94663b38a26a6b75b673f0518.ctex"]
 
 [params]
 

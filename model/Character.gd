@@ -1,4 +1,4 @@
-class_name Character
+class_name  Character
 
 
 var base_speed := 300
