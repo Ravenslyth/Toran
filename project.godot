@@ -73,6 +73,13 @@ sprint={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Object"
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Ennemies"
+2d_physics/layer_3="Objects"
+2d_physics/layer_4="Walls"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
