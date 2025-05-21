@@ -1,7 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://biit8xwyaj7rd"]
 
-[ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_5m413"]
-[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/knife.tscn" id="1_sfj6v"]
+[ext_resource type="PackedScene" uid="uid://djfbyhod5gj5x" path="res://scene/character/player.tscn" id="1_5m413"]
 [ext_resource type="PackedScene" uid="uid://cwkit8pofeq0g" path="res://scene/ennemies/Mob.tscn" id="3_qg4by"]
 [ext_resource type="Texture2D" uid="uid://bl7mjslo80sxu" path="res://asset/Isometrique/spritesheet.png" id="4_dypvr"]
 
@@ -549,9 +548,6 @@ sources/0 = SubResource("TileSetAtlasSource_n5o6t")
 
 [node name="Player" parent="." instance=ExtResource("1_5m413")]
 position = Vector2(364, 295)
-
-[node name="knife" parent="." instance=ExtResource("1_sfj6v")]
-position = Vector2(170, 137)
 
 [node name="Mob1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_qg4by")]
 target = NodePath("../Player")
