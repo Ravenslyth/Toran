@@ -3,12 +3,15 @@ extends Character
 
 var player_id: int = 0
 var detection : Vector2 = Vector2(0,0)
+ 
 
 var object_current_loot : Area2D = null
 
 var inventory: Array = []
 var MAX_INVENTORY_SIZE := 0
+ 
 
+ 
 var equipment := {
 	"main_weapon": null,
 	"off_weapon": null,
@@ -16,6 +19,9 @@ var equipment := {
 	"armor": null,
 	"boots": null
 }
+ 
+
+ 
 
 #-----basic Animation character
 func play_movement_animation(direction: Vector2, animated_sprite: AnimatedSprite2D):
@@ -55,6 +61,7 @@ func equip_items(slot_name:String, item: object) -> bool:
 
 #---------------------END FUNCTION EQUIP ITEM-----------------------#
 
+ 
 #-----------------------ADD ITEM INVENTORY-------------------------#
 #0003
 func add_item_inventory(object_current):
@@ -75,3 +82,9 @@ func add_item_inventory(object_current):
 	
 
 #---------------------END ADD ITEM INVENTORY-----------------------#
+ 
+#---------------------END FUNCTION EQUIP ITEM-----------------------#
+
+
+
+ 

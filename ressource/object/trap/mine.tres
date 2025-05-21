@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Mine" load_steps=3 format=3 uid="uid://bvr4atdulie6j"]
+
+[ext_resource type="Script" path="res://model/object/trap/Mine.gd" id="1_heot3"]
+[ext_resource type="PackedScene" uid="uid://ic2h164kfcfi" path="res://scene/object/props/MineProps.tscn" id="2_30uek"]
+
+[resource]
+script = ExtResource("1_heot3")
+explosion_radius = 0.0
+damage = 15
+trap_scene = ExtResource("2_30uek")
+activation_radius = 10.0
+trigger_delay = 0.0
+reusable = false
+visible = false
+duration = 0.0
+is_lethal = false
+name = ""
+description = ""
+isStackable = false
+nbr = 0
+usable = true

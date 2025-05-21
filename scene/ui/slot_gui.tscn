@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://0tjnyjrjugaa"]
+
+[ext_resource type="Script" path="res://script/ui/slot_gui.gd" id="1_3fp1k"]
+[ext_resource type="Texture2D" uid="uid://cs5x6uemngjhl" path="res://asset/ui/HUD.png" id="1_fqtx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr1hj"]
+atlas = ExtResource("1_fqtx7")
+region = Rect2(64, 16, 16, 16)
+
+[node name="Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_3fp1k")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+texture = SubResource("AtlasTexture_pr1hj")
+centered = false
+
+[node name="item" type="Sprite2D" parent="."]

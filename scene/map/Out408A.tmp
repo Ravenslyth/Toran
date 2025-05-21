@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://biit8xwyaj7rd"]
+[gd_scene load_steps=7 format=3 uid="uid://p8ymettmh486"]
 
 [ext_resource type="Texture2D" uid="uid://cchcwy6pxliiy" path="res://asset/map/spritesheet.png" id="1_ek3p0"]
 [ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_sqpsy"]
@@ -247,3 +247,9 @@ position = Vector2(171, 154)
 [node name="Lootable2" parent="." instance=ExtResource("2_njbp6")]
 position = Vector2(297, 155)
 obj = ExtResource("3_cat67")
+
+[node name="Lootable3" parent="." instance=ExtResource("2_njbp6")]
+position = Vector2(496, 154)
+
+[node name="Lootable4" parent="." instance=ExtResource("2_njbp6")]
+position = Vector2(398, 157)

@@ -1,50 +1,69 @@
 extends CharacterBody2D
 
-@onready var napo_scene = preload("res://scene/character/Napo.tscn")
-@onready var grano_scene = preload("res://scene/character/Grano.tscn")
 @onready var detectionShape : CollisionShape2D = $DetectionArea/DetectionShape2D
+ 
+@onready var tilemap := get_parent().get_node("TileMap")
 
 @export var team_data: TeamData
 var team := []
+
+
 var current_character_index := 0
 var current_character: Node2D = null
 
 var direction
+
+
+var is_sprinting
+
+var can_move = true
+
+@export var inventory: Inventory
+
 
 #----------------------INITIALISATION PLAYER-----------------------#
 
 func _ready():
 	for char_data in team_data.members:
 		team.append(char_data.scene)
-	#0002
+
 	swap_to_character(0)
-	 
+
 
 #--------------------END INITIALISATION PLAYER---------------------#
 
 #------------------------PROCESS BY FRAME--------------------------#
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("loot"):
-		if current_character.logic.object_current_loot:
-			#0003
-			current_character.logic.add_item_inventory(current_character.logic.object_current_loot)
-	if Input.is_action_just_pressed("swap_character"):
-		current_character_index = (current_character_index + 1) % team.size()
-		#0002
-		swap_to_character(current_character_index)
-	#if 
-	
-	if current_character:
-		var speed = current_character.logic.get_speed()
-		#0001
-		movementPlayer(speed)
-		current_character.logic.play_movement_animation(direction,current_character.animated_sprite)
 
+	if can_move:
+		if current_character:
+			var default_speed = current_character.logic.default_speed   
+			var sprint_speed = default_speed + 200
+			
+			if Input.is_action_just_pressed("swap_character"):
+				current_character_index = (current_character_index + 1) % team.size()
+				swap_to_character(current_character_index)
+		
+		 # ------------------------ Movement ---------------------- #
+		
+			if Input.is_action_pressed("sprint"):
+				current_character.logic.base_speed = sprint_speed
+				current_character.animated_sprite.speed_scale = 2.0
+			else:
+				current_character.logic.base_speed  = default_speed
+				current_character.animated_sprite.speed_scale = 1.0
+
+
+			movementPlayer(current_character.logic.base_speed )
+			current_character.logic.play_movement_animation(direction,current_character.animated_sprite)
+	else:
+		if current_character:
+			current_character.animated_sprite.play("idle")
 #-----------------------END PROCESS BY FRAME------------------------#
 
 #-------------------------MOVEMENT PLAYER---------------------------#
-#0001
+
 func movementPlayer(SPEED):
 	direction = Vector2(
 		Input.get_axis("move_left", "move_right"),
@@ -59,7 +78,6 @@ func movementPlayer(SPEED):
 
 #---------------------------INTERACTION----------------------------#
 
-#0002
 func swap_to_character(index: int):
 	if current_character:
 		current_character.queue_free()
@@ -71,16 +89,19 @@ func swap_to_character(index: int):
 
 #-------------------------END INTERACTION--------------------------#
 
-#------------------------DETECTION OBJECT--------------------------#
+ 
+#----------------------GET ID && COORD MAP-------------------------#
 
-func _on_detection_area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	current_character.logic.object_current_loot = area
-	print("A  " + area.obj.name + " ??")
+ 
+func get_current_tile_atlas_coords() -> Vector2i:
+	var local_pos = tilemap.to_local(current_character.global_position)
+	var cell_coords = tilemap.local_to_map(local_pos)
+	var layer = 0  # la plupart du temps, 0
+	var atlas_coords = tilemap.get_cell_atlas_coords(layer, cell_coords)
+	return atlas_coords
+	
+#--------------------END GET ID && COORD MAP-----------------------#
 
-func _on_detection_area_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
-	if is_instance_valid(area):
-		if area == current_character.logic.object_current_loot :
-			print("Maybe another time ....")
-			current_character.logic.object_current_loot = null
 
-#--------------------END DETECTION OBJECT--------------------------#
+
+ 

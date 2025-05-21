@@ -1,25 +1,20 @@
-[gd_resource type="Resource" script_class="TeamData" load_steps=8 format=3 uid="uid://dsdyc53b7k14t"]
+[gd_resource type="Resource" script_class="TeamData" load_steps=7 format=3 uid="uid://0gv1akeqglkk"]
 
-[ext_resource type="Script" path="res://model/character/TeamData.gd" id="1_1vpc8"]
-[ext_resource type="PackedScene" uid="uid://4gohacy2v61b" path="res://scene/character/Napo.tscn" id="1_x0vwi"]
-[ext_resource type="Script" path="res://model/character/CharacterData.gd" id="2_u2y2o"]
-[ext_resource type="PackedScene" uid="uid://5h4dhx5iu5ci" path="res://scene/character/Grano.tscn" id="3_8n33h"]
+[ext_resource type="PackedScene" uid="uid://5h4dhx5iu5ci" path="res://scene/character/Grano.tscn" id="1_rj3td"]
+[ext_resource type="Script" path="res://model/character/TeamData.gd" id="1_sm0a3"]
+[ext_resource type="Script" path="res://model/character/CharacterData.gd" id="2_26ah8"]
+[ext_resource type="PackedScene" uid="uid://4gohacy2v61b" path="res://scene/character/Napo.tscn" id="3_5virj"]
 
-[sub_resource type="Resource" id="Resource_agc7g"]
-script = ExtResource("2_u2y2o")
-name = "Napo"
-scene = ExtResource("1_x0vwi")
-
-[sub_resource type="Resource" id="Resource_0y6qd"]
-script = ExtResource("2_u2y2o")
+[sub_resource type="Resource" id="Resource_y1o3e"]
+script = ExtResource("2_26ah8")
 name = "Grano"
-scene = ExtResource("3_8n33h")
+scene = ExtResource("1_rj3td")
 
-[sub_resource type="Resource" id="Resource_cj2ol"]
-script = ExtResource("2_u2y2o")
-name = "Napo2"
-scene = ExtResource("1_x0vwi")
+[sub_resource type="Resource" id="Resource_ihlds"]
+script = ExtResource("2_26ah8")
+name = "Napo"
+scene = ExtResource("3_5virj")
 
 [resource]
-script = ExtResource("1_1vpc8")
-members = Array[ExtResource("2_u2y2o")]([SubResource("Resource_agc7g"), SubResource("Resource_0y6qd"), SubResource("Resource_cj2ol")])
+script = ExtResource("1_sm0a3")
+members = Array[ExtResource("2_26ah8")]([SubResource("Resource_y1o3e"), SubResource("Resource_ihlds")])

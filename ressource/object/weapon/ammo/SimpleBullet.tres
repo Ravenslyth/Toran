@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="object" load_steps=4 format=3 uid="uid://ksynwt0pi444"]
+
+[ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_4u88q"]
+[ext_resource type="Script" path="res://model/object/object.gd" id="1_24gad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu5hu"]
+atlas = ExtResource("1_4u88q")
+region = Rect2(197, 10, 8, 5)
+
+[resource]
+script = ExtResource("1_24gad")
+name = "Simple Bullet"
+description = "A Simple bullet"
+isStackable = false
+icon = SubResource("AtlasTexture_vu5hu")
+nbr = 0
+usable = false

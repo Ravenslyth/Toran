@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsrip8imadrhv"]
+
+[ext_resource type="Texture2D" uid="uid://cs5x6uemngjhl" path="res://asset/ui/HUD.png" id="1_0em2k"]
+[ext_resource type="Script" path="res://script/ui/inventory_gui.gd" id="1_hrv1p"]
+[ext_resource type="PackedScene" uid="uid://0tjnyjrjugaa" path="res://scene/ui/slot_gui.tscn" id="2_gkitc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxy7f"]
+atlas = ExtResource("1_0em2k")
+region = Rect2(192, 16, 48, 48)
+
+[node name="InventoryGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1066.0
+offset_bottom = -602.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+script = ExtResource("1_hrv1p")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 46.0
+texture = SubResource("AtlasTexture_bxy7f")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
+
+[node name="Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_gkitc")]
+layout_mode = 2
