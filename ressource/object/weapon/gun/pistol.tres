@@ -19,3 +19,5 @@ name = "Pistol"
 description = "A simple Gun"
 isStackable = false
 icon = SubResource("AtlasTexture_8twks")
+nbr = 1
+usable = true

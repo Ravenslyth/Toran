@@ -16,3 +16,5 @@ name = "knife"
 description = "A simple knife"
 isStackable = false
 icon = SubResource("AtlasTexture_kde2x")
+nbr = 1
+usable = false

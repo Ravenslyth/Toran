@@ -1,19 +1,11 @@
 extends Panel
 
 @onready var backgroundSprite: Sprite2D = $background
-@onready var itemSprite: Sprite2D = $CenterContainer/Panel/item 
-@onready var amountLabel: Label = $CenterContainer/Panel/Label
+@onready var itemSprite: Sprite2D = $item
 
-func update(slot: InventorySlot):
-	if !slot.item:
-		backgroundSprite.frame = 0
+func update(item:object):
+	if !item:
 		itemSprite.visible = false
-		amountLabel.visible = false
 	else:
-		backgroundSprite.frame = 1 
 		itemSprite.visible = true
-		itemSprite.texture = slot.item.icon
-		amountLabel.visible = true
-		amountLabel.text = str(slot.amount)
-
- 
+		itemSprite.texture = item.texture

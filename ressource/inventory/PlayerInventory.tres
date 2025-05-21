@@ -1,24 +1,10 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=7 format=3 uid="uid://dbysyyfnmjqyr"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=5 format=3 uid="uid://vgvgtfwyw1qg"]
 
-[ext_resource type="Script" path="res://script/ui/InventorySlot.gd" id="2_ffkva"]
-[ext_resource type="Script" path="res://model/inventory/Inventory.gd" id="3_cpdnq"]
-
-[sub_resource type="Resource" id="Resource_yndbq"]
-script = ExtResource("2_ffkva")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_cbj3j"]
-script = ExtResource("2_ffkva")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_u0hco"]
-script = ExtResource("2_ffkva")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_rnftd"]
-script = ExtResource("2_ffkva")
-amount = 0
+[ext_resource type="Resource" uid="uid://gcgjfdr1cnk2" path="res://ressource/object/weapon/gun/pistol.tres" id="1_fo64t"]
+[ext_resource type="Resource" uid="uid://c4wwvwgansqwj" path="res://ressource/object/weapon/handToHand/knife.tres" id="2_0gh75"]
+[ext_resource type="Resource" uid="uid://ksynwt0pi444" path="res://ressource/object/weapon/ammo/SimpleBullet.tres" id="3_7jjcb"]
+[ext_resource type="Script" path="res://model/inventory/inventory.gd" id="4_43odw"]
 
 [resource]
-script = ExtResource("3_cpdnq")
-slots = Array[ExtResource("2_ffkva")]([SubResource("Resource_yndbq"), SubResource("Resource_cbj3j"), SubResource("Resource_u0hco"), SubResource("Resource_rnftd")])
+script = ExtResource("4_43odw")
+items = Array[Resource("res://model/object/object.gd")]([ExtResource("1_fo64t"), ExtResource("2_0gh75"), ExtResource("3_7jjcb"), null, ExtResource("1_fo64t"), null, ExtResource("3_7jjcb"), null])

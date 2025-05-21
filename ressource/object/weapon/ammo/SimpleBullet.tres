@@ -13,3 +13,5 @@ name = "Simple Bullet"
 description = "A Simple bullet"
 isStackable = true
 icon = SubResource("AtlasTexture_vu5hu")
+nbr = 15
+usable = false

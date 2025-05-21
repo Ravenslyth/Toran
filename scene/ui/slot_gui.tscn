@@ -1,43 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvba2rhxopuhr"]
+[gd_scene load_steps=4 format=3 uid="uid://0tjnyjrjugaa"]
 
-[ext_resource type="Script" path="res://script/ui/slot_gui.gd" id="1_6ljjr"]
-[ext_resource type="Texture2D" uid="uid://djbgssjas7r1s" path="res://asset/ui/Sample-InventorySlotsSet.png" id="1_qrstj"]
+[ext_resource type="Script" path="res://script/ui/slot_gui.gd" id="1_3fp1k"]
+[ext_resource type="Texture2D" uid="uid://cs5x6uemngjhl" path="res://asset/ui/HUD.png" id="1_fqtx7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa28x"]
-atlas = ExtResource("1_qrstj")
-region = Rect2(114, 81, 20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr1hj"]
+atlas = ExtResource("1_fqtx7")
+region = Rect2(64, 16, 16, 16)
 
-[node name="slot_gui" type="Panel"]
+[node name="Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(25, 25)
-offset_right = 24.0
-offset_bottom = 25.0
-script = ExtResource("1_6ljjr")
+custom_minimum_size = Vector2(20, 20)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_3fp1k")
 
 [node name="background" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_xa28x")
+scale = Vector2(1.25, 1.25)
+texture = SubResource("AtlasTexture_pr1hj")
 centered = false
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 25.0
-
-[node name="Panel" type="Panel" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
-
-[node name="Label" type="Label" parent="CenterContainer/Panel"]
-custom_minimum_size = Vector2(11, 14)
-layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 13.0
-offset_bottom = 17.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-text = "99
-"
+[node name="item" type="Sprite2D" parent="."]

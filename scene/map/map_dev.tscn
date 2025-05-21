@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://biit8xwyaj7rd"]
 
-[ext_resource type="PackedScene" uid="uid://stn1547xkwea" path="res://scene/character/player.tscn" id="1_5m413"]
-[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Weapon/Lootable.tscn" id="2_d8i6o"]
+[ext_resource type="PackedScene" uid="uid://djfbyhod5gj5x" path="res://scene/character/player.tscn" id="1_5m413"]
+[ext_resource type="PackedScene" uid="uid://db317jc8njkod" path="res://scene/object/Lootable.tscn" id="2_d8i6o"]
 
 [node name="Map_Dev" type="Node2D"]
 

@@ -1,45 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://djfbyhod5gj5x"]
+[gd_scene load_steps=6 format=3 uid="uid://djfbyhod5gj5x"]
 
 [ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
-[ext_resource type="Resource" uid="uid://dbysyyfnmjqyr" path="res://ressource/inventory/PlayerInventory.tres" id="2_bb6ae"]
 [ext_resource type="Resource" uid="uid://0gv1akeqglkk" path="res://ressource/character/my_team.tres" id="2_wmf8x"]
-[ext_resource type="PackedScene" uid="uid://gpmmu5sf6bds" path="res://scene/ui/inventory_gui.tscn" id="3_4ndsr"]
-[ext_resource type="Script" path="res://script/ui/CanvasLayer.gd" id="3_vw7xs"]
+[ext_resource type="Resource" uid="uid://vgvgtfwyw1qg" path="res://ressource/inventory/playerInventory.tres" id="3_k8gum"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6noi1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvb56"]
+radius = 8.97652
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqcv7"]
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -5)
 scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 8
 script = ExtResource("1_8nvga")
 team_data = ExtResource("2_wmf8x")
-inventory = ExtResource("2_bb6ae")
+inventory = ExtResource("3_k8gum")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6noi1")
+position = Vector2(0.333333, 7.66667)
+scale = Vector2(1.34371, 1.20302)
+shape = SubResource("CircleShape2D_gvb56")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+scale = Vector2(1.34127, 1.27185)
 collision_layer = 2
-collision_mask = 12
+collision_mask = 8
 
 [node name="DetectionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_vqcv7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-script = ExtResource("3_vw7xs")
-
-[node name="InventoryGui" parent="Camera2D/CanvasLayer" instance=ExtResource("3_4ndsr")]
-visible = false
-anchors_preset = 9
-anchor_right = 0.0
-offset_left = 13.0
-offset_top = 9.0
-offset_right = 13.0
-offset_bottom = 9.0
-grow_horizontal = 1
-
-[connection signal="area_shape_entered" from="DetectionArea" to="." method="_on_detection_area_area_shape_entered"]
-[connection signal="area_shape_exited" from="DetectionArea" to="." method="_on_detection_area_area_shape_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
