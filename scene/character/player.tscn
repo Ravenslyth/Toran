@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
 [ext_resource type="Resource" uid="uid://0gv1akeqglkk" path="res://ressource/character/my_team.tres" id="2_g8kpe"]
-[ext_resource type="Resource" uid="uid://rwnjaupa1qvu" path="res://ressource/inventory/PlayerInventory.tres" id="3_2hl54"]
+[ext_resource type="Resource" uid="uid://rwnjaupa1qvu" path="res://ressource/inventory/playerInventory.tres" id="3_2hl54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvb56"]
 radius = 8.97652
@@ -19,13 +19,12 @@ inventory = ExtResource("3_2hl54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.333333, 7.66667)
-scale = Vector2(1.34371, 1.20302)
+scale = Vector2(1.00462, 0.582321)
 shape = SubResource("CircleShape2D_gvb56")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 scale = Vector2(1.34127, 1.27185)
-collision_layer = 2
-collision_mask = 8
+collision_mask = 4
 
 [node name="DetectionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_vqcv7")

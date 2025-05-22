@@ -18,6 +18,7 @@ offset_bottom = -602.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
+pivot_offset = Vector2(43, 23)
 script = ExtResource("1_hrv1p")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

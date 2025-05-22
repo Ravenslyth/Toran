@@ -19,11 +19,13 @@ var is_sprinting
 var can_move = true
 
 @export var inventory: Inventory
+var itemToLoot = null
 
 
 #----------------------INITIALISATION PLAYER-----------------------#
 
 func _ready():
+		
 	for char_data in team_data.members:
 		team.append(char_data.scene)
 
@@ -57,6 +59,10 @@ func _physics_process(delta):
 
 			movementPlayer(current_character.logic.base_speed )
 			current_character.logic.play_movement_animation(direction,current_character.animated_sprite)
+			
+			if Input.is_action_just_pressed("Loot"):
+				if itemToLoot:
+					itemToLoot.collect(inventory)
 	else:
 		if current_character:
 			current_character.animated_sprite.play("idle")
@@ -102,6 +108,14 @@ func get_current_tile_atlas_coords() -> Vector2i:
 	
 #--------------------END GET ID && COORD MAP-----------------------#
 
+#--------------------Signal Detection Player-----------------------#
 
+func _on_detection_area_body_entered(body):
+	if body.name == "Lootable":
+			itemToLoot = body
 
+func _on_detection_area_body_exited(body):
+	itemToLoot = null
+
+#------------------END Signal Detection Player---------------------#
  
