@@ -4,6 +4,8 @@ extends Character
 var player_id: int = 0
 var detection : Vector2 = Vector2(0,0)
  
+var life = 100
+var max_life = 100
 
 var object_current_loot : Area2D = null
 
@@ -20,9 +22,6 @@ var equipment := {
 	"boots": null
 }
  
-
- 
-
 #-----basic Animation character
 func play_movement_animation(direction: Vector2, animated_sprite: AnimatedSprite2D):
 	if direction.y > 0 and direction.x < 0:

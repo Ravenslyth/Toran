@@ -12,11 +12,11 @@ script = ExtResource("1_qj1dv")
 obj = ExtResource("2_5liqs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -6.66667
-offset_top = -2.66667
-offset_right = 33.3333
-offset_bottom = 37.3333
-scale = Vector2(0.340963, 0.157844)
+offset_left = -6.0
+offset_top = -5.66667
+offset_right = 34.0
+offset_bottom = 34.3333
+scale = Vector2(0.311902, 0.297292)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

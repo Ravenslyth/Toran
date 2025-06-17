@@ -7,6 +7,8 @@ extends Resource
 @export var icon: Texture2D
 @export var nbr : int
 @export var usable : bool
+@export var lootable : bool
+@export var timeUse : float
 
 func use(user):
 	print("useddddd")

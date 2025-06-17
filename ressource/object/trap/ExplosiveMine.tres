@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=5 format=3 uid="uid://bsxffckul2uay"]
+
+[ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_24qtm"]
+[ext_resource type="Script" path="res://model/object/trap/Trap.gd" id="1_vf15p"]
+[ext_resource type="PackedScene" uid="uid://d24ly08qjmbsg" path="res://scene/props/Weapon/TrapMine.tscn" id="3_3khlr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8vr"]
+atlas = ExtResource("1_24qtm")
+region = Rect2(114, 2, 12, 14)
+
+[resource]
+script = ExtResource("1_vf15p")
+activation_radius = Vector2(5, 5)
+trigger_delay = 0.0
+reusable = false
+visible = true
+duration = 0.0
+is_lethal = false
+trap_scene = ExtResource("3_3khlr")
+name = "ExplosiveMine"
+description = "it's a BOOM"
+isStackable = false
+icon = SubResource("AtlasTexture_0b8vr")
+nbr = 2
+usable = true
+lootable = true
+timeUse = 2.0

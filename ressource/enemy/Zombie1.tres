@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterLogic" load_steps=2 format=3 uid="uid://tbv2rxmt7g25"]
+
+[ext_resource type="Script" path="res://model/character/CharacterLogic.gd" id="1_sob2u"]
+
+[resource]
+script = ExtResource("1_sob2u")
+character_name = ""
+level = 1
+current_hp = 100
+max_hp = 100
+attack = 10
+defense = 5
+range = Vector2(1, 1)
+inventory = Array[Resource("res://model/object/object.gd")]([])
+status_effects = Array[String]([])
+experience = 0
+base_speed = 150
+default_speed = 150
+agility = 7
+base_deplacment = 5
+RadiusDetection = 10
+playabledCharacter = false
+team = "Zombie"
+direction = Vector2(0, 0)

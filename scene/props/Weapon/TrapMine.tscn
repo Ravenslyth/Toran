@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d24ly08qjmbsg"]
+
+[ext_resource type="Script" path="res://script/props/weapon/TrapMine.gd" id="1_k4pj3"]
+[ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_l8bew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxfql"]
+atlas = ExtResource("1_l8bew")
+region = Rect2(114, 0, 12, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lunpp"]
+
+[node name="TrapMine" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_k4pj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_bxfql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lunpp")

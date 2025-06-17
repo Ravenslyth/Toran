@@ -13,3 +13,10 @@ func insert(item:object):
 			break
 	
 	updated.emit()
+
+func remove(item: object) -> void:
+	for i in range(items.size()):
+		if items[i] == item:
+			items.remove_at(i)
+			updated.emit()
+			break

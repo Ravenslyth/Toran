@@ -1,19 +1,76 @@
-[gd_resource type="Resource" script_class="TeamData" load_steps=7 format=3 uid="uid://0gv1akeqglkk"]
+[gd_resource type="Resource" script_class="TeamData" load_steps=12 format=3 uid="uid://0gv1akeqglkk"]
 
+[ext_resource type="PackedScene" uid="uid://d0lr5mqslkt4h" path="res://scene/character/combat_Grano.tscn" id="1_3t4n8"]
+[ext_resource type="Script" path="res://model/character/CharacterLogic.gd" id="1_etvf1"]
 [ext_resource type="PackedScene" uid="uid://5h4dhx5iu5ci" path="res://scene/character/Grano.tscn" id="1_rj3td"]
 [ext_resource type="Script" path="res://model/character/TeamData.gd" id="1_sm0a3"]
 [ext_resource type="Script" path="res://model/character/CharacterData.gd" id="2_26ah8"]
 [ext_resource type="PackedScene" uid="uid://4gohacy2v61b" path="res://scene/character/Napo.tscn" id="3_5virj"]
+[ext_resource type="PackedScene" uid="uid://bf6bb5pny0pn7" path="res://scene/character/combat_Napo.tscn" id="5_2hrxq"]
+
+[sub_resource type="Resource" id="Resource_tj3ct"]
+script = ExtResource("1_etvf1")
+character_name = "Grano"
+level = 1
+current_hp = 100
+max_hp = 100
+attack = 10
+defense = 5
+range = Vector2(0, 0)
+inventory = Array[Resource("res://model/object/object.gd")]([])
+equipment = {
+"armor": null,
+"main_weapon": null,
+"off_weapon": null
+}
+status_effects = Array[String]([])
+experience = 0
+base_speed = 150
+default_speed = 150
+agility = 0
+base_deplacment = 0
+RadiusDetection = 0
+playabledCharacter = false
+team = ""
+direction = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_y1o3e"]
 script = ExtResource("2_26ah8")
-name = "Grano"
 scene = ExtResource("1_rj3td")
+combat_scene = ExtResource("1_3t4n8")
+logic = SubResource("Resource_tj3ct")
+
+[sub_resource type="Resource" id="Resource_sacv5"]
+script = ExtResource("1_etvf1")
+character_name = "Napo"
+level = 1
+current_hp = 100
+max_hp = 100
+attack = 10
+defense = 5
+range = Vector2(0, 0)
+inventory = Array[Resource("res://model/object/object.gd")]([])
+equipment = {
+"armor": null,
+"main_weapon": null,
+"off_weapon": null
+}
+status_effects = Array[String]([])
+experience = 0
+base_speed = 150
+default_speed = 150
+agility = 0
+base_deplacment = 0
+RadiusDetection = 0
+playabledCharacter = false
+team = ""
+direction = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_ihlds"]
 script = ExtResource("2_26ah8")
-name = "Napo"
 scene = ExtResource("3_5virj")
+combat_scene = ExtResource("5_2hrxq")
+logic = SubResource("Resource_sacv5")
 
 [resource]
 script = ExtResource("1_sm0a3")

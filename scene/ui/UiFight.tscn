@@ -1,0 +1,230 @@
+[gd_scene load_steps=14 format=3 uid="uid://dy0qi1j0vhfbo"]
+
+[ext_resource type="Texture2D" uid="uid://cw5sd0517ajai" path="res://asset/ui/image.png" id="1_bwj0j"]
+[ext_resource type="Script" path="res://script/ui/UiFight.gd" id="1_tspbt"]
+[ext_resource type="Texture2D" uid="uid://b0cht64sbrwj6" path="res://asset/ui/pics_cadre_gun-sheet.png" id="1_x7kdy"]
+[ext_resource type="StyleBox" uid="uid://q3o7f1slwlqh" path="res://ressource/inventory/hover_button.tres" id="2_qt6xi"]
+[ext_resource type="Texture2D" uid="uid://bvr8y6u7kcuq8" path="res://asset/Fight/IsoTileset.png" id="4_oyjpi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngcyj"]
+atlas = ExtResource("1_bwj0j")
+region = Rect2(444, 27, 112, 134)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wam8j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uupma"]
+atlas = ExtResource("1_bwj0j")
+region = Rect2(444, 215, 102, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ungcx"]
+atlas = ExtResource("1_bwj0j")
+region = Rect2(444, 199, 102, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaowb"]
+atlas = ExtResource("1_bwj0j")
+region = Rect2(614, 365, 102, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs8kw"]
+atlas = ExtResource("1_bwj0j")
+region = Rect2(216, 25, 208, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oj6g"]
+atlas = ExtResource("4_oyjpi")
+region = Rect2(107, 289, 10, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j63v5"]
+atlas = ExtResource("1_x7kdy")
+region = Rect2(340, 27, 264, 304)
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tspbt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 670.0
+offset_bottom = 140.0
+scale = Vector2(1.29384, 1.19677)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ngcyj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+clip_children = 2
+custom_minimum_size = Vector2(55, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wam8j")
+text = "LIFE"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_under = SubResource("AtlasTexture_uupma")
+texture_progress = SubResource("AtlasTexture_ungcx")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+clip_children = 2
+custom_minimum_size = Vector2(55, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wam8j")
+text = "ENERGY
+"
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_under = SubResource("AtlasTexture_uupma")
+texture_progress = SubResource("AtlasTexture_gaowb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/HBoxContainer2"]
+modulate = Color(1, 1, 1, 0.831373)
+custom_minimum_size = Vector2(90, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hs8kw")
+region_rect = Rect2(1, 0, 207, 112)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer2/NinePatchRect"]
+layout_mode = 0
+offset_left = 11.5708
+offset_top = 15.9029
+offset_right = 76.5708
+offset_bottom = 93.9029
+theme_override_constants/separation = 7
+
+[node name="BtnMove" type="Button" parent="HBoxContainer/HBoxContainer2/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_qt6xi")
+text = "MOVE"
+
+[node name="BtnAction" type="Button" parent="HBoxContainer/HBoxContainer2/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_qt6xi")
+text = "ACTION
+"
+
+[node name="GeneralSelector" type="TextureRect" parent="HBoxContainer/HBoxContainer2/NinePatchRect"]
+layout_mode = 0
+offset_left = -17.0262
+offset_top = 30.9434
+offset_right = -7.02619
+offset_bottom = 47.9434
+rotation = -1.5708
+texture = SubResource("AtlasTexture_6oj6g")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/HBoxContainer3"]
+modulate = Color(1, 1, 1, 0.831373)
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hs8kw")
+region_rect = Rect2(1, 0, 207, 112)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer3/NinePatchRect"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_left = 33.5047
+offset_top = 10.8895
+offset_right = 1346.5
+offset_bottom = 638.889
+scale = Vector2(0.168015, 0.15501)
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonMain" type="Button" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="IconMainWeapon" type="TextureRect" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j63v5")
+
+[node name="TextMainWeapon" type="TextEdit" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(999, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_wam8j")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="ButtonSecond" type="Button" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="IconMainWeapon" type="TextureRect" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j63v5")
+
+[node name="TextMainWeapon" type="TextEdit" parent="HBoxContainer/HBoxContainer3/NinePatchRect/VBoxContainer/HBoxContainer2"]
+clip_children = 2
+custom_minimum_size = Vector2(999, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_wam8j")
+
+[node name="SelectiorWeapon" type="TextureRect" parent="HBoxContainer/HBoxContainer3/NinePatchRect"]
+layout_mode = 0
+offset_left = 14.1824
+offset_top = 38.4636
+offset_right = 24.1824
+offset_bottom = 55.4636
+rotation = -1.5708
+texture = SubResource("AtlasTexture_6oj6g")
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/NinePatchRect/VBoxContainer/BtnMove" to="." method="_on_btn_move_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/NinePatchRect/VBoxContainer/BtnAction" to="." method="_on_btn_action_pressed"]

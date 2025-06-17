@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="TeamData" load_steps=9 format=3 uid="uid://dgwutusckppe5"]
+
+[ext_resource type="Script" path="res://model/character/CharacterLogic.gd" id="1_1jtd8"]
+[ext_resource type="PackedScene" uid="uid://qjggsuyqll5q" path="res://scene/ennemies/combat_Zombie.tscn" id="1_cgx5m"]
+[ext_resource type="Script" path="res://model/character/CharacterData.gd" id="3_4ry3b"]
+[ext_resource type="PackedScene" uid="uid://d10l6ahx7034h" path="res://scene/ennemies/zombie.tscn" id="3_n50ic"]
+[ext_resource type="Script" path="res://model/character/TeamData.gd" id="4_54cru"]
+
+[sub_resource type="Resource" id="Resource_vgehe"]
+script = ExtResource("1_1jtd8")
+character_name = "Zombie1"
+level = 1
+current_hp = 100
+max_hp = 100
+attack = 10
+defense = 5
+range = Vector2(0, 0)
+inventory = Array[Resource("res://model/object/object.gd")]([])
+equipment = {
+"armor": null,
+"main_weapon": null,
+"off_weapon": null
+}
+status_effects = Array[String]([])
+experience = 0
+base_speed = 150
+default_speed = 150
+agility = 0
+base_deplacment = 0
+RadiusDetection = 0
+playabledCharacter = false
+team = ""
+direction = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_vuhmq"]
+script = ExtResource("3_4ry3b")
+scene = ExtResource("3_n50ic")
+combat_scene = ExtResource("1_cgx5m")
+logic = SubResource("Resource_vgehe")
+
+[sub_resource type="Resource" id="Resource_gw4p4"]
+script = ExtResource("3_4ry3b")
+scene = ExtResource("3_n50ic")
+combat_scene = ExtResource("1_cgx5m")
+logic = ExtResource("1_1jtd8")
+
+[resource]
+script = ExtResource("4_54cru")
+members = Array[ExtResource("3_4ry3b")]([SubResource("Resource_vuhmq"), SubResource("Resource_gw4p4")])

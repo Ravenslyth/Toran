@@ -4,3 +4,6 @@ extends Weapon
 
 
 
+
+func used():
+	print("hello !!! ")

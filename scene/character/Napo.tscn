@@ -1,8 +1,16 @@
-[gd_scene load_steps=77 format=3 uid="uid://4gohacy2v61b"]
+[gd_scene load_steps=80 format=3 uid="uid://4gohacy2v61b"]
 
-[ext_resource type="Script" path="res://script/character/Napo.gd" id="1_ooqf6"]
+[ext_resource type="Script" path="res://script/character/Napo.gd" id="1_8r1h3"]
 [ext_resource type="Texture2D" uid="uid://c3cgssjb3o4hv" path="res://asset/character/napo_idle.png" id="2_866vn"]
+[ext_resource type="Script" path="res://model/character/CharacterLogic.gd" id="2_s2ljt"]
+[ext_resource type="Shader" path="res://shader/character/ciblage.gdshader" id="3_1n453"]
 [ext_resource type="Texture2D" uid="uid://5ne82xgqf88i" path="res://asset/character/napo_walk.png" id="3_23uxa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ls4o"]
+shader = ExtResource("3_1n453")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
+shader_parameter/thickness = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v36p"]
 atlas = ExtResource("2_866vn")
@@ -557,9 +565,12 @@ animations = [{
 }]
 
 [node name="Napo" type="Node2D"]
-script = ExtResource("1_ooqf6")
+script = ExtResource("1_8r1h3")
+character_logic = ExtResource("2_s2ljt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0ls4o")
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_x8o5u")
 animation = &"moveUpRight"
 autoplay = "idle"
