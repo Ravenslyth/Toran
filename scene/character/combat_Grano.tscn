@@ -1,8 +1,8 @@
 [gd_scene load_steps=112 format=3 uid="uid://d0lr5mqslkt4h"]
 
-[ext_resource type="Script" path="res://script/character/combat_Grano.gd" id="1_5jlgq"]
+[ext_resource type="Script" uid="uid://bkqa3nagmlxqd" path="res://script/character/combat_Grano.gd" id="1_5jlgq"]
 [ext_resource type="Resource" uid="uid://dsy4mkht3xtk6" path="res://ressource/character/grano.tres" id="2_kvupk"]
-[ext_resource type="Shader" path="res://shader/character/ciblage.gdshader" id="3_2gnoe"]
+[ext_resource type="Shader" uid="uid://dk3comkramdfg" path="res://shader/character/ciblage.gdshader" id="3_2gnoe"]
 [ext_resource type="Texture2D" uid="uid://c3etu4son07k2" path="res://asset/character/grano_Idle.png" id="4_k5t45"]
 [ext_resource type="Texture2D" uid="uid://cme0if32lu4cg" path="res://asset/character/grano_walk.png" id="5_d5yqw"]
 

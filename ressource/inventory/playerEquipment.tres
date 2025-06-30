@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://bjplg0xat3v0a"]
 
 [ext_resource type="Resource" uid="uid://gcgjfdr1cnk2" path="res://ressource/object/weapon/gun/pistol.tres" id="1_b1kwm"]
-[ext_resource type="Script" path="res://model/inventory/Equipment.gd" id="1_pn61k"]
+[ext_resource type="Script" uid="uid://d1iwietnyp22j" path="res://model/inventory/Equipment.gd" id="1_pn61k"]
 
 [resource]
 script = ExtResource("1_pn61k")

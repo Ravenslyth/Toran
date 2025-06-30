@@ -1,8 +1,8 @@
 [gd_scene load_steps=54 format=3 uid="uid://qjggsuyqll5q"]
 
-[ext_resource type="Script" path="res://script/ennemies/combat_Zombie.gd" id="1_an6ue"]
+[ext_resource type="Script" uid="uid://vf4m7kuflpph" path="res://script/ennemies/combat_Zombie.gd" id="1_an6ue"]
 [ext_resource type="Resource" uid="uid://tbv2rxmt7g25" path="res://ressource/enemy/Zombie1.tres" id="2_te0e6"]
-[ext_resource type="Shader" path="res://shader/character/ciblage.gdshader" id="3_tjw0x"]
+[ext_resource type="Shader" uid="uid://dk3comkramdfg" path="res://shader/character/ciblage.gdshader" id="3_tjw0x"]
 [ext_resource type="Texture2D" uid="uid://dnla8504jc7xc" path="res://asset/character/ennemie/wolf-idle.png" id="4_hn85t"]
 [ext_resource type="Texture2D" uid="uid://bn541cuh0vm8e" path="res://asset/character/ennemie/wolf-bite.png" id="5_bewj1"]
 [ext_resource type="Texture2D" uid="uid://ctohe1rdnbbok" path="res://asset/character/ennemie/wolf-run.png" id="5_eeeay"]

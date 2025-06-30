@@ -1,8 +1,8 @@
 [gd_scene load_steps=112 format=3 uid="uid://bf6bb5pny0pn7"]
 
-[ext_resource type="Script" path="res://script/character/combat_Napo.gd" id="1_7vsc2"]
+[ext_resource type="Script" uid="uid://cqlyqkats2ndq" path="res://script/character/combat_Napo.gd" id="1_7vsc2"]
 [ext_resource type="Resource" uid="uid://ca6ml8e0kuw6t" path="res://ressource/character/napo.tres" id="2_kmgg1"]
-[ext_resource type="Shader" path="res://shader/character/ciblage.gdshader" id="3_b2jke"]
+[ext_resource type="Shader" uid="uid://dk3comkramdfg" path="res://shader/character/ciblage.gdshader" id="3_b2jke"]
 [ext_resource type="Texture2D" uid="uid://c3cgssjb3o4hv" path="res://asset/character/napo_idle.png" id="4_83pmk"]
 [ext_resource type="Texture2D" uid="uid://5ne82xgqf88i" path="res://asset/character/napo_walk.png" id="5_ts66l"]
 

@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oxq51"]
 _data = {
-"Posed": SubResource("Animation_genka"),
-"RESET": SubResource("Animation_gqvtl")
+&"Posed": SubResource("Animation_genka"),
+&"RESET": SubResource("Animation_gqvtl")
 }
 
 [node name="Flag" type="Node2D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dy0qi1j0vhfbo"]
 
 [ext_resource type="Texture2D" uid="uid://cw5sd0517ajai" path="res://asset/ui/image.png" id="1_bwj0j"]
-[ext_resource type="Script" path="res://script/ui/UiFight.gd" id="1_tspbt"]
+[ext_resource type="Script" uid="uid://bgehsqkprs76d" path="res://script/ui/UiFight.gd" id="1_tspbt"]
 [ext_resource type="Texture2D" uid="uid://b0cht64sbrwj6" path="res://asset/ui/pics_cadre_gun-sheet.png" id="1_x7kdy"]
 [ext_resource type="StyleBox" uid="uid://q3o7f1slwlqh" path="res://ressource/inventory/hover_button.tres" id="2_qt6xi"]
 [ext_resource type="Texture2D" uid="uid://bvr8y6u7kcuq8" path="res://asset/Fight/IsoTileset.png" id="4_oyjpi"]

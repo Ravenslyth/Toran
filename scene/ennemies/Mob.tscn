@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwkit8pofeq0g"]
 
-[ext_resource type="Script" path="res://script/ennemies/mob.gd" id="1_1ido5"]
+[ext_resource type="Script" uid="uid://b8h6p64c45h5m" path="res://script/ennemies/mob.gd" id="1_1ido5"]
 [ext_resource type="Texture2D" uid="uid://bfwfwwmyfpe6" path="res://icon.svg" id="1_yci1w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vihe6"]

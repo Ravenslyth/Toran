@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://djfbyhod5gj5x"]
 
-[ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
+[ext_resource type="Script" uid="uid://ddf2nik3osw37" path="res://script/character/player.gd" id="1_8nvga"]
 [ext_resource type="Resource" uid="uid://0gv1akeqglkk" path="res://ressource/character/my_team.tres" id="2_g8kpe"]
-[ext_resource type="Resource" uid="uid://rwnjaupa1qvu" path="res://ressource/inventory/playerInventory.tres" id="3_2hl54"]
+[ext_resource type="Resource" uid="uid://rwnjaupa1qvu" path="res://ressource/inventory/PlayerInventory.tres" id="3_2hl54"]
 [ext_resource type="PackedScene" uid="uid://b60qdbi07n08x" path="res://scene/ui/action_bar.tscn" id="4_0186i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvb56"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://d10l6ahx7034h"]
 
-[ext_resource type="Script" path="res://script/ennemies/mob_1.gd" id="1_gutpf"]
+[ext_resource type="Script" uid="uid://chsjecl2fij47" path="res://script/ennemies/mob_1.gd" id="1_gutpf"]
 [ext_resource type="Resource" uid="uid://tbv2rxmt7g25" path="res://ressource/enemy/Zombie1.tres" id="2_byx37"]
-[ext_resource type="Shader" path="res://shader/character/ciblage.gdshader" id="3_f4aly"]
+[ext_resource type="Shader" uid="uid://dk3comkramdfg" path="res://shader/character/ciblage.gdshader" id="3_f4aly"]
 [ext_resource type="Texture2D" uid="uid://dgs02665pd8pm" path="res://asset/character/ennemie/Eating.png" id="4_voimn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ye5a"]

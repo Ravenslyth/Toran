@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d24ly08qjmbsg"]
 
-[ext_resource type="Script" path="res://script/props/weapon/TrapMine.gd" id="1_k4pj3"]
+[ext_resource type="Script" uid="uid://bcay8bwppnl45" path="res://script/props/weapon/TrapMine.gd" id="1_k4pj3"]
 [ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_l8bew"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxfql"]

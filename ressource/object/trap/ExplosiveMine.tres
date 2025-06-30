@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Trap" load_steps=5 format=3 uid="uid://bsxffckul2uay"]
 
 [ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_24qtm"]
-[ext_resource type="Script" path="res://model/object/trap/Trap.gd" id="1_vf15p"]
+[ext_resource type="Script" uid="uid://c3m1pr56e3vj1" path="res://model/object/trap/Trap.gd" id="1_vf15p"]
 [ext_resource type="PackedScene" uid="uid://d24ly08qjmbsg" path="res://scene/props/Weapon/TrapMine.tscn" id="3_3khlr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0b8vr"]
