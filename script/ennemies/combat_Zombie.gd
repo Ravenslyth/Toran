@@ -268,4 +268,3 @@ func give_damage():
 	target.character_logic.current_hp -= character_logic.attack
 	target.death()
  
-

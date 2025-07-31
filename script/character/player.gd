@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var detectionShape : CollisionShape2D = $DetectionArea/DetectionShape2D
 @onready var actionBar = $ActionBar
- 
+
 @onready var tilemap : TileMap = get_parent().get_node("TileMap")
 @export var trap_parent: Node
 
@@ -15,10 +15,7 @@ var current_character_index := 0
 var current_character: Node2D = null
 
 var direction
-
-
 var is_sprinting
-
 var can_move = true
 
 @export var inventory: Inventory
@@ -37,14 +34,6 @@ func _ready():
 	current_character_index = 0
 	swap_to_character(current_character_index)
 
-	#for char_data in team_data.members:
-		#var instance := char_data.scene.instantiate()
-		#instance.logic = char_data
-		#team.append(instance)
-	#swap_to_character(0)
-
-	#enter_fight()
-
 #--------------------END INITIALISATION PLAYER---------------------#
 
 #------------------------PROCESS BY FRAME--------------------------#
@@ -62,8 +51,11 @@ func _physics_process(delta):
 	var logic = team_data.members[current_character_index].logic
 	var default_speed = logic.base_speed if logic.has_method("base_speed") else 200
 	var sprint_speed = default_speed + 200
+	var crouch_speed = default_speed * 0.5
 
-	if Input.is_action_pressed("sprint"):
+	if Input.is_action_pressed("crouch"):
+		logic.base_speed = crouch_speed
+	elif Input.is_action_pressed("sprint"):
 		logic.base_speed = sprint_speed
 		current_character.animated_sprite.speed_scale = 2.0
 	else:
@@ -83,8 +75,7 @@ func movementPlayer(SPEED):
 		Input.get_axis("move_left", "move_right"),
 		Input.get_axis("move_up", "move_down")
 	).normalized()
-	
- 
+
 	velocity = direction * SPEED
 	move_and_slide()
 
@@ -93,40 +84,26 @@ func movementPlayer(SPEED):
 #---------------------------INTERACTION----------------------------#
 
 func swap_to_character(index: int) -> void:
-	# Supprime l'ancien personnage
 	if current_character:
 		current_character.queue_free()
-	
+
 	current_character_index = index
 	var char_data: CharacterData = team_data.members[current_character_index]
 	current_character = char_data.scene.instantiate()
 	add_child(current_character)
-	
-#func swap_to_character(index: int):
-	#if current_character:
-		#current_character.queue_free()
-	#
-	#current_character_index = index
-	#current_character = team[current_character_index]
-	#add_child(current_character)
-	#detectionShape.scale = current_character.logic.detection
 
 #-------------------------END INTERACTION--------------------------#
 
- 
 #----------------------GET ID && COORD MAP-------------------------#
 
- 
 func get_current_tile_center_global_pos() -> Vector2:
 	var local_pos = tilemap.to_local(current_character.global_position)
 	var cell_coords = tilemap.local_to_map(local_pos)
 	var cell_local_pos = tilemap.map_to_local(cell_coords)
 	var cell_global_pos = tilemap.to_global(cell_local_pos)
 
- 
 	return cell_coords
 
-	
 #--------------------END GET ID && COORD MAP-----------------------#
 
 #--------------------Signal Detection Player-----------------------#
@@ -151,21 +128,15 @@ func _on_action_bar_complete():
 			inventory.remove(objUsed)
 			objUsed = null
 
-#-----------------END Signal action bar Player---------------------# 
+#-----------------END Signal action bar Player---------------------#
 
-#------------------------enter in fight----------------------------# 
+#------------------------enter in fight----------------------------#
 
 func enter_fight():
 	var enemy_team_data : TeamData = preload("res://ressource/enemy/enemy_team_data.tres")
 	
-	
-	GameState.save_player_data(
-		team_data
-	)
-	GameState.save_enemy_data(
-		enemy_team_data
-	)
+	GameState.save_player_data(team_data)
+	GameState.save_enemy_data(enemy_team_data)
 	
 	var combat_scene = preload("res://scene/map/fight_Scene.tscn")
 	get_tree().change_scene_to_packed(combat_scene)
-
