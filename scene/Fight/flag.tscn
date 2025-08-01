@@ -51,6 +51,6 @@ texture = SubResource("AtlasTexture_5st8x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_oxq51")
+&"": SubResource("AnimationLibrary_oxq51")
 }
 autoplay = "Posed"
