@@ -9,6 +9,8 @@ class_name ennemy
 #----------------------Statut of move----------------------------------------------
 
 var see_player : bool = false # use when the ennemie see the player
+var listen_noise : bool = false # use when the ennemie see the player
+var listen_noise_arrived : bool = false # use when the ennemie see the player
 var last_move : bool = false # use when the ennemie finish the navigation 
 var move_to_origine_position : bool = false
 
@@ -22,6 +24,10 @@ var move_to_origine_position : bool = false
 var in_zone_of_detection : bool = false
 var ray_cast_2d_origine_target_position = Vector2(650,0)
 var first_look_detection : bool = false
+
+#--------------------Look noise------------------------------------------------------
+
+var look_noise : Vector2
 
 #-----------------Navigation agent 2d---------------(
 
@@ -63,6 +69,7 @@ func _process(delta):
 		velocity = direction * speed
 	elif move_to_origine_position and last_move:
 		var direction = to_local(navigation_agent_2d.get_next_path_position())
+		#look.look_at(direction)
 		direction = direction.normalized()
 		velocity = direction * speed
 	elif not move_to_origine_position:
@@ -84,12 +91,14 @@ func look_not_look():
 	if is_instance_valid(ray_cast_2d.get_collider()):
 		if collider.is_in_group("Tilemap") and see_player and not in_zone_of_detection:
 			out_of_view.start()
+			print("pas pris")
 			see_player = false
 			move_to_origine_position = true
 			see_you.hide()
 			not_see_you.show()
 		elif collider.is_in_group("Player") or in_zone_of_detection:
 			look.look_at(target.global_position)
+			print("vu")
 			see_player = true
 			last_move = false
 			out_of_view.stop()
@@ -102,8 +111,11 @@ func look_not_look():
 
 #-----------------------Reload the move at the player----------------------
 func _on_reload_position_timeout():
-	if see_player:
+	if see_player or in_zone_of_detection:
 		navigation_agent_2d.target_position = target.global_position
+	elif listen_noise:
+		navigation_agent_2d.target_position = look_noise
+		
 
 #-----------------------End Reload the move at the player-------------------
 
@@ -111,7 +123,6 @@ func _on_reload_position_timeout():
 func _on_zone_of_detection_body_entered(body):
 	if body.name == "Player":
 		in_zone_of_detection = true
-		see_player = true
 		last_move = false
 		out_of_view.stop()
 		see_you.show()
@@ -135,7 +146,17 @@ func _on_navigation_agent_2d_navigation_finished():
 	velocity = Vector2.ZERO
 	last_move = true
 	move_to_origine_position = false
-	print("stop")
+	print("arrived")
+	print("listen noise = ",listen_noise)
+	if not listen_noise and not listen_noise_arrived:
+		listen_noise_arrived = true
+		print("noise arrived")
+		print("move to origine posi : ",move_to_origine_position)
+		print("listen noise : ",listen_noise)
+		print("out of view: ",out_of_view)
+		print("first look detec: ",first_look_detection)
+		out_of_view.start()
+	
 #------------------End Player Out Detection--------------------
 
 #------------------Area Look Player---------------------------------
@@ -144,7 +165,8 @@ func _on_look_body_entered(body):
 	if body.name == "Player":
 		print(ray_cast_2d_origine_target_position)
 		first_look_detection = true
-		look_not_look()
+		print("first look detec : ",first_look_detection)
+
 
 
 func _on_look_body_exited(body):
@@ -159,3 +181,31 @@ func _on_look_body_exited(body):
 		print("exited")
 
 #------------------Look player signal---------------------------------
+
+#----------------Ear of mobs--------------------------------------------
+func _on_ear_area_entered(area):
+	if area.name == "NoiseArea2d":
+		print("noise listen")
+		look_noise = area.global_position
+		move_to_origine_position= true
+		last_move = true
+		listen_noise = true
+		listen_noise_arrived = false
+		out_of_view.stop()
+
+
+func _on_ear_area_exited(area):
+	if area.name == "NoiseArea2d":
+		print("noise not listen")
+		look_noise = area.global_position
+		listen_noise = false
+
+#----------------End Ear of mobs--------------------------------------------
+
+
+func _on_navigation_agent_2d_waypoint_reached(details):
+	pass # Replace with function body.
+
+
+func _on_navigation_agent_2d_link_reached(details):
+	pass # Replace with function body.

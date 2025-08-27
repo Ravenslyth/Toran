@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dgum5e5mut3ye"]
+
+[ext_resource type="Script" path="res://script/NoiseEmitter/Noise.gd" id="1_25xin"]
+
+[resource]
+script = ExtResource("1_25xin")
+decibelle = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwkit8pofeq0g"]
+[gd_scene load_steps=8 format=3 uid="uid://cwkit8pofeq0g"]
 
 [ext_resource type="Script" path="res://script/ennemies/mob.gd" id="1_1ido5"]
 [ext_resource type="Texture2D" uid="uid://bfwfwwmyfpe6" path="res://icon.svg" id="1_yci1w"]
@@ -22,6 +22,9 @@ radius = 247.808
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0pmw"]
 size = Vector2(519, 370)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1hi5"]
+radius = 30.0666
 
 [node name="Mob1" type="CharacterBody2D" groups=["Ennemies"]]
 collision_layer = 2
@@ -92,11 +95,21 @@ shape = SubResource("RectangleShape2D_i0pmw")
 [node name="RayCast2D" type="RayCast2D" parent="PivotRaycast2D"]
 target_position = Vector2(650, 0)
 collision_mask = 9
+hit_from_inside = true
+
+[node name="Ear" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ear"]
+shape = SubResource("CircleShape2D_c1hi5")
+debug_color = Color(0.983148, 0, 0.355713, 0.42)
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="waypoint_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_waypoint_reached"]
 [connection signal="timeout" from="ReloadPosition" to="." method="_on_reload_position_timeout"]
 [connection signal="timeout" from="OutOfView" to="." method="_on_out_of_view_timeout"]
 [connection signal="body_entered" from="ZoneOfDetection" to="." method="_on_zone_of_detection_body_entered"]
 [connection signal="body_exited" from="ZoneOfDetection" to="." method="_on_zone_of_detection_body_exited"]
 [connection signal="body_entered" from="Look" to="." method="_on_look_body_entered"]
 [connection signal="body_exited" from="Look" to="." method="_on_look_body_exited"]
+[connection signal="area_entered" from="Ear" to="." method="_on_ear_area_entered"]
+[connection signal="area_exited" from="Ear" to="." method="_on_ear_area_exited"]

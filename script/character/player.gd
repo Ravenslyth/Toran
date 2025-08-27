@@ -66,6 +66,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("sprint"):
 		logic.base_speed = sprint_speed
 		current_character.animated_sprite.speed_scale = 2.0
+		
+		$"../NoiseEmitter".noise_chargement(1)
 	else:
 		logic.base_speed = default_speed
 		current_character.animated_sprite.speed_scale = 1.0

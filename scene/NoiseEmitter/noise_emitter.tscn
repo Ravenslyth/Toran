@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://xbeyyni4v8jg"]
+
+[ext_resource type="Script" path="res://script/NoiseEmitter/noise_emitter.gd" id="1_kp7d3"]
+[ext_resource type="PackedScene" uid="uid://wmv53robgs5d" path="res://scene/NoiseEmitter/noise.tscn" id="2_qg6s0"]
+
+[node name="NoiseEmitter" type="Node2D"]
+script = ExtResource("1_kp7d3")
+noise_scene = ExtResource("2_qg6s0")
