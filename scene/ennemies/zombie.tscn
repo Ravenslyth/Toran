@@ -1,0 +1,137 @@
+[gd_scene load_steps=22 format=3 uid="uid://d10l6ahx7034h"]
+
+[ext_resource type="Script" uid="uid://chsjecl2fij47" path="res://script/ennemies/mob_1.gd" id="1_gutpf"]
+[ext_resource type="Resource" uid="uid://tbv2rxmt7g25" path="res://ressource/enemy/Zombie1.tres" id="2_byx37"]
+[ext_resource type="Shader" uid="uid://dk3comkramdfg" path="res://shader/character/ciblage.gdshader" id="3_f4aly"]
+[ext_resource type="Texture2D" uid="uid://dgs02665pd8pm" path="res://asset/character/ennemie/Eating.png" id="4_voimn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ye5a"]
+shader = ExtResource("3_f4aly")
+shader_parameter/outline_color = Color(1, 0, 0, 1)
+shader_parameter/progress = 0.0
+shader_parameter/thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w126h"]
+atlas = ExtResource("4_voimn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_172kj"]
+atlas = ExtResource("4_voimn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy3jr"]
+atlas = ExtResource("4_voimn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prrpn"]
+atlas = ExtResource("4_voimn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ca2w"]
+atlas = ExtResource("4_voimn")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01hg3"]
+atlas = ExtResource("4_voimn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4qvh"]
+atlas = ExtResource("4_voimn")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5aqg"]
+atlas = ExtResource("4_voimn")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7ygn"]
+atlas = ExtResource("4_voimn")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo56j"]
+atlas = ExtResource("4_voimn")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfdhq"]
+atlas = ExtResource("4_voimn")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rur57"]
+atlas = ExtResource("4_voimn")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spj62"]
+atlas = ExtResource("4_voimn")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj141"]
+atlas = ExtResource("4_voimn")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufolg"]
+atlas = ExtResource("4_voimn")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hyd8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w126h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_172kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy3jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ca2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01hg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4qvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5aqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7ygn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo56j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfdhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rur57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spj62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj141")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufolg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Zombie" type="Node2D"]
+script = ExtResource("1_gutpf")
+character_logic = ExtResource("2_byx37")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_1ye5a")
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_hyd8y")
+animation = &"Idle"
+autoplay = "Idle"

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=8 format=3 uid="uid://bsxffckul2uay"]
+
+[ext_resource type="Texture2D" uid="uid://cmeqd7pi6cxl5" path="res://asset/object/weapon/1.png" id="1_24qtm"]
+[ext_resource type="Script" uid="uid://c3m1pr56e3vj1" path="res://model/object/trap/Trap.gd" id="1_vf15p"]
+[ext_resource type="Script" uid="uid://bcay8bwppnl45" path="res://script/props/weapon/TrapMine.gd" id="3_8xx33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8vr"]
+atlas = ExtResource("1_24qtm")
+region = Rect2(114, 2, 12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxfql"]
+atlas = ExtResource("1_24qtm")
+region = Rect2(114, 0, 12, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lunpp"]
+
+[sub_resource type="PackedScene" id="PackedScene_ycsil"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("TrapMine", "Node2D", "scale", "script", "Sprite2D", "Sprite2D", "texture", "CollisionShape2D", "CollisionShape2D", "shape"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 1073741824, 0, 5, 4, -1, 1, 6, 2, 0, 1073741825, 0, 8, 7, -1, 1, 9, 3, 0),
+"variants": [Vector2(3, 3), ExtResource("3_8xx33"), SubResource("AtlasTexture_bxfql"), SubResource("CircleShape2D_lunpp")],
+"version": 3
+}
+
+[resource]
+script = ExtResource("1_vf15p")
+activation_radius = Vector2(5, 5)
+trigger_delay = 0.0
+reusable = false
+visible = true
+duration = 0.0
+is_lethal = false
+trap_scene = SubResource("PackedScene_ycsil")
+name = "ExplosiveMine"
+description = "it's a BOOM"
+isStackable = false
+icon = SubResource("AtlasTexture_0b8vr")
+nbr = 2
+usable = true
+lootable = true
+timeUse = 2.0

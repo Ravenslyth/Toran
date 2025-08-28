@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b60qdbi07n08x"]
+
+[ext_resource type="Script" uid="uid://db4y33ioq2fj0" path="res://script/ui/action_bar.gd" id="1_mxw70"]
+[ext_resource type="Texture2D" uid="uid://q0r1k1hfkais" path="res://asset/ui/32x32 circle bar progress dark green.png" id="1_n4cpu"]
+[ext_resource type="Texture2D" uid="uid://imajkytu343b" path="res://asset/ui/32x32 circle bar over.png" id="2_nc6il"]
+
+[node name="ActionBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_mxw70")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 24.0
+fill_mode = 4
+texture_under = ExtResource("1_n4cpu")
+texture_over = ExtResource("2_nc6il")
+texture_progress = ExtResource("1_n4cpu")
+tint_under = Color(0, 0, 0, 0.435294)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

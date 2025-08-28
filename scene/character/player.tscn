@@ -1,17 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://stn1547xkwea"]
+[gd_scene load_steps=7 format=3 uid="uid://djfbyhod5gj5x"]
 
-[ext_resource type="Script" path="res://script/character/player.gd" id="1_8nvga"]
+[ext_resource type="Script" uid="uid://ddf2nik3osw37" path="res://script/character/player.gd" id="1_8nvga"]
+[ext_resource type="Resource" uid="uid://0gv1akeqglkk" path="res://ressource/character/my_team.tres" id="2_g8kpe"]
+[ext_resource type="Resource" uid="uid://rwnjaupa1qvu" path="res://ressource/inventory/PlayerInventory.tres" id="3_2hl54"]
+[ext_resource type="PackedScene" uid="uid://b60qdbi07n08x" path="res://scene/ui/action_bar.tscn" id="4_0186i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvb56"]
+radius = 6.63601
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqcv7"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(0, -5)
 scale = Vector2(3, 3)
 collision_mask = 10
 script = ExtResource("1_8nvga")
+team_data = ExtResource("2_g8kpe")
+inventory = ExtResource("3_2hl54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.333333, 7.66667)
+scale = Vector2(1.00462, 0.755654)
+shape = SubResource("CircleShape2D_gvb56")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+scale = Vector2(1.34127, 1.27185)
+collision_mask = 4
+
+[node name="DetectionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_vqcv7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_tree_entered"]
+[node name="ActionBar" parent="." instance=ExtResource("4_0186i")]
+offset_left = 11.3333
+offset_top = -21.3333
+offset_right = 11.3333
+offset_bottom = -21.3333
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
